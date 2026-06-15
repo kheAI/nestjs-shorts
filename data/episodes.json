@@ -16,7 +16,7 @@
     "analogy": "The receptionist at a doctor's clinic: takes your name, routes you to the right doctor, hands back the answer — never examines you.",
     "goldenRule": "A controller receives and delegates — zero business logic, zero database calls, ever.",
     "template": "definition-card",
-    "estimatedDuration": 40,
+    "estimatedDuration": 35,
     "part": 1
   },
   {
@@ -26,7 +26,7 @@
     "analogy": "The doctor: examines the problem, applies business rules, prescribes a result — never answers phones or handles paperwork.",
     "goldenRule": "Services are the only layer that knows about business rules — if a service imports HTTP objects, it's in the wrong layer.",
     "template": "definition-card",
-    "estimatedDuration": 40,
+    "estimatedDuration": 35,
     "part": 1
   },
   {
@@ -35,8 +35,8 @@
     "hook": "What do a database wrapper, an email client, and a Stripe SDK have in common in NestJS?",
     "analogy": "Appliances plugged into a power grid: @Injectable() is the plug, the module's providers array connects it to the grid.",
     "goldenRule": "@Injectable() marks the plug — but the module's providers array is what connects it to the power.",
-    "template": "definition-card",
-    "estimatedDuration": 35,
+    "template": "code-reveal",
+    "estimatedDuration": 30,
     "part": 1
   },
   {
@@ -75,14 +75,14 @@
     "hook": "Raw request data is dirty. This is the layer that cleans it before it touches your handler.",
     "analogy": "A water purification system: raw tap water flows through, impurities are removed, only clean certified water reaches the handler.",
     "goldenRule": "Pipes transform or validate route arguments — they run after guards, before your handler executes.",
-    "template": "definition-card",
+    "template": "code-reveal",
     "estimatedDuration": 40,
     "part": 2
   },
   {
     "id": "ep09",
     "title": "Guard",
-    "hook": "AuthGuard and RolesGuard are two separate bouncers — never collapse them into one.",
+    "hook": "The first question every request must answer: are you who you claim to be? That's authentication. Guards are where NestJS answers it.",
     "analogy": "A nightclub bouncer: checks your wristband, checks the VIP section, checks the banned list — it's yes or no, no negotiation.",
     "goldenRule": "Guards return true or throw — the only correct place for authentication and authorisation logic.",
     "template": "definition-card",
@@ -126,13 +126,13 @@
     "analogy": "A professional staffing agency: the chef declares what staff they need, the agency delivers them on opening day — and sends stand-ins for the test kitchen.",
     "goldenRule": "Declare dependencies in the constructor — NestJS delivers instances automatically, and tests can swap any of them for mocks.",
     "template": "before-after",
-    "estimatedDuration": 55,
+    "estimatedDuration": 60,
     "part": 3
   },
   {
     "id": "ep14",
     "title": "Scope",
-    "hook": "One wrong scope and every request shares state it was never supposed to share.",
+    "hook": "Three scopes. Pick the wrong one and tenant A's data bleeds into tenant B's request.",
     "analogy": "Coffee service styles: DEFAULT is one communal pot for the whole office, REQUEST is a fresh cup per visitor, TRANSIENT is a new cup every time anyone reaches for one.",
     "goldenRule": "Most providers should be singletons — use REQUEST scope only for stateful per-request context like TenantContext.",
     "template": "definition-card",
@@ -225,7 +225,7 @@
     "hook": "JWT for users, API keys for services, OAuth for Google — three mechanisms, one guard system.",
     "analogy": "Different ID verification lanes at the same border crossing: passport lane, work permit lane, biometrics lane — a passport doesn't get you through the work permit lane.",
     "goldenRule": "Each strategy is a named provider — guards call strategies by name to authenticate one specific mechanism.",
-    "template": "definition-card",
+    "template": "code-reveal",
     "estimatedDuration": 45,
     "part": 4
   },
@@ -282,7 +282,7 @@
   {
     "id": "ep29",
     "title": "tenantId Pattern",
-    "hook": "One API field. If the client can set it, they can read any customer's data in your system.",
+    "hook": "Your DTO is clean. Your tenantId is still in the wrong place.",
     "analogy": "The unit number stamped on everything: every domain row carries the unit number, and it only ever comes from the key issued at the door — never from the visitor's own claim.",
     "goldenRule": "tenantId comes only from the JWT — never accept it as a client-provided DTO field, never make it a filterable field.",
     "template": "before-after",
@@ -302,7 +302,7 @@
   {
     "id": "ep31",
     "title": "RBAC — Roles & RolesGuard",
-    "hook": "A viewer calling a mutation is a permissions bug. Here's how to prevent it at the resolver level with two decorators.",
+    "hook": "You're authenticated. That doesn't mean you can do everything. RolesGuard answers the second question: are you allowed to do this specific thing?",
     "analogy": "The VIP wristband system: a standard wristband doesn't get you into the VIP section — the system checks the band, not your word.",
     "goldenRule": "@Roles() declares required roles on the handler, RolesGuard enforces them — two decorators, zero manual role checks in business logic.",
     "template": "code-reveal",
@@ -312,7 +312,7 @@
   {
     "id": "ep32",
     "title": "Row-Level Authorization with @Authorize",
-    "hook": "Guards protect the entrance. @Authorize protects the data itself — even if someone gets past the guards.",
+    "hook": "You have the right role. You still can't see another tenant's data. @Authorize is the only layer that enforces that at the database, not the application.",
     "analogy": "A turnstile built into the database corridor: even if someone slips past the front door, the turnstile still requires a valid badge to physically reach the data rows.",
     "goldenRule": "@Authorize merges a WHERE filter at the query builder level — it is architecturally impossible to bypass with a clever query.",
     "template": "systems-explainer",
@@ -335,14 +335,14 @@
     "hook": "A frontend developer imports a backend class. ESLint catches it before CI even runs.",
     "analogy": "An apartment building with strict bylaws: tenants cannot enter each other's units, and the building's own alarm enforces it — not just the manager's word.",
     "goldenRule": "Nx enforces that apps cannot import each other directly — all code sharing goes through libs/, caught at the IDE level.",
-    "template": "systems-explainer",
+    "template": "stat-card",
     "estimatedDuration": 50,
     "part": 5
   },
   {
     "id": "ep35",
     "title": "The Full Request Lifecycle",
-    "hook": "Every NestJS request touches 8 layers in a fixed order. Most production bugs live in exactly one of them.",
+    "hook": "Something's wrong in production. This is the map that tells you which layer to blame.",
     "analogy": "A building with mandatory checkpoints at every floor: you cannot skip a floor, and each checkpoint has one specific job.",
     "goldenRule": "Middleware → Guards → Pipes → Interceptors → Handler → Service → DB → Interceptors → Filter — know this order and you know where any bug lives.",
     "template": "systems-explainer",
