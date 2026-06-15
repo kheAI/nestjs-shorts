@@ -1,0 +1,17 @@
+{
+  "background": "#0a0a0f",
+  "accent": "#e879f9",
+  "codeAccent": "#38bdf8",
+  "textPrimary": "#f8fafc",
+  "textSecondary": "#94a3b8",
+  "cardBackground": "#13131a",
+  "fontProse": "Inter, system-ui, sans-serif",
+  "fontCode": "JetBrains Mono, monospace",
+  "dimensions": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "channelHandle": "@khe_ai",
+  "seriesName": "NestJS Bite-Sized"
+}
