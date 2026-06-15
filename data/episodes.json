@@ -1,0 +1,352 @@
+[
+  {
+    "id": "ep01",
+    "title": "Module",
+    "hook": "Every NestJS project has 30 files and zero spaghetti — here's why.",
+    "analogy": "A department in a company: owns its own staff and tools, formally requests what it needs from others, and chooses what to share.",
+    "goldenRule": "One feature, one module — declare what you own, borrow, and lend.",
+    "template": "definition-card",
+    "estimatedDuration": 45,
+    "part": 1
+  },
+  {
+    "id": "ep02",
+    "title": "Controller",
+    "hook": "Your controller method has one job. If it has two, you've already broken it.",
+    "analogy": "The receptionist at a doctor's clinic: takes your name, routes you to the right doctor, hands back the answer — never examines you.",
+    "goldenRule": "A controller receives and delegates — zero business logic, zero database calls, ever.",
+    "template": "definition-card",
+    "estimatedDuration": 40,
+    "part": 1
+  },
+  {
+    "id": "ep03",
+    "title": "Service",
+    "hook": "You found where NestJS actually hides the code.",
+    "analogy": "The doctor: examines the problem, applies business rules, prescribes a result — never answers phones or handles paperwork.",
+    "goldenRule": "Services are the only layer that knows about business rules — if a service imports HTTP objects, it's in the wrong layer.",
+    "template": "definition-card",
+    "estimatedDuration": 40,
+    "part": 1
+  },
+  {
+    "id": "ep04",
+    "title": "Provider",
+    "hook": "What do a database wrapper, an email client, and a Stripe SDK have in common in NestJS?",
+    "analogy": "Appliances plugged into a power grid: @Injectable() is the plug, the module's providers array connects it to the grid.",
+    "goldenRule": "@Injectable() marks the plug — but the module's providers array is what connects it to the power.",
+    "template": "definition-card",
+    "estimatedDuration": 35,
+    "part": 1
+  },
+  {
+    "id": "ep05",
+    "title": "Decorator",
+    "hook": "That @ symbol isn't magic — it's a sticky label, and NestJS is the handler reading it.",
+    "analogy": "Sticky labels on a file folder: URGENT, CONFIDENTIAL, ADMIN ONLY — the content doesn't change, the label tells the handler what to do.",
+    "goldenRule": "Decorators attach metadata to classes, methods, and parameters — NestJS reads those labels at startup to wire the app.",
+    "template": "definition-card",
+    "estimatedDuration": 40,
+    "part": 1
+  },
+  {
+    "id": "ep06",
+    "title": "Bootstrapping / main.ts",
+    "hook": "Where does a NestJS app actually start? One function, five things, in this exact order.",
+    "analogy": "The building manager on opening day: unlocks the doors, turns on the power, verifies permits, opens reception — then business starts.",
+    "goldenRule": "main.ts wires global config once — ValidationPipe, CORS, port — before accepting a single request.",
+    "template": "step-by-step",
+    "estimatedDuration": 45,
+    "part": 1
+  },
+  {
+    "id": "ep07",
+    "title": "DTO",
+    "hook": "One missing rule in a DTO and a client can inject any userId they want into your database.",
+    "analogy": "A customs declaration form: undeclared items are confiscated, unknown items are detained, a malformed form gets turned back at the border.",
+    "goldenRule": "Never accept id, tenantId, or userId as client-provided DTO fields — those are server-assigned values.",
+    "template": "before-after",
+    "estimatedDuration": 50,
+    "part": 2
+  },
+  {
+    "id": "ep08",
+    "title": "Pipe",
+    "hook": "Raw request data is dirty. This is the layer that cleans it before it touches your handler.",
+    "analogy": "A water purification system: raw tap water flows through, impurities are removed, only clean certified water reaches the handler.",
+    "goldenRule": "Pipes transform or validate route arguments — they run after guards, before your handler executes.",
+    "template": "definition-card",
+    "estimatedDuration": 40,
+    "part": 2
+  },
+  {
+    "id": "ep09",
+    "title": "Guard",
+    "hook": "AuthGuard and RolesGuard are two separate bouncers — never collapse them into one.",
+    "analogy": "A nightclub bouncer: checks your wristband, checks the VIP section, checks the banned list — it's yes or no, no negotiation.",
+    "goldenRule": "Guards return true or throw — the only correct place for authentication and authorisation logic.",
+    "template": "definition-card",
+    "estimatedDuration": 45,
+    "part": 2
+  },
+  {
+    "id": "ep10",
+    "title": "Interceptor",
+    "hook": "How do you run code both before and after a handler without touching the handler? With a sandwich.",
+    "analogy": "A sandwich: top bread runs before the handler, the filling is the handler, bottom bread runs after — only complete when both slices are in place.",
+    "goldenRule": "Interceptors wrap handlers via RxJS — use them for logging execution time, caching, and transforming response shape.",
+    "template": "systems-explainer",
+    "estimatedDuration": 50,
+    "part": 2
+  },
+  {
+    "id": "ep11",
+    "title": "Middleware",
+    "hook": "Middleware and Interceptors both run on every request. They are not the same thing.",
+    "analogy": "The airport body scanner before check-in: no boarding pass checked yet, just makes sure nothing dangerous enters before the specific checks begin.",
+    "goldenRule": "Middleware runs before NestJS processing — use it for correlation IDs, security headers, and rate limiting.",
+    "template": "before-after",
+    "estimatedDuration": 45,
+    "part": 2
+  },
+  {
+    "id": "ep12",
+    "title": "Exception Filter",
+    "hook": "Without this, your API throws raw stack traces at your users.",
+    "analogy": "The customer service desk: something went wrong on the shop floor, the desk catches it, packages it professionally, and hands back a clear structured response.",
+    "goldenRule": "Exception Filters catch thrown errors and shape them into consistent, structured HTTP responses with correlation IDs and timestamps.",
+    "template": "before-after",
+    "estimatedDuration": 45,
+    "part": 2
+  },
+  {
+    "id": "ep13",
+    "title": "Dependency Injection",
+    "hook": "If you're writing 'new EmailService()' inside a class, you've already made it impossible to test.",
+    "analogy": "A professional staffing agency: the chef declares what staff they need, the agency delivers them on opening day — and sends stand-ins for the test kitchen.",
+    "goldenRule": "Declare dependencies in the constructor — NestJS delivers instances automatically, and tests can swap any of them for mocks.",
+    "template": "before-after",
+    "estimatedDuration": 55,
+    "part": 3
+  },
+  {
+    "id": "ep14",
+    "title": "Scope",
+    "hook": "One wrong scope and every request shares state it was never supposed to share.",
+    "analogy": "Coffee service styles: DEFAULT is one communal pot for the whole office, REQUEST is a fresh cup per visitor, TRANSIENT is a new cup every time anyone reaches for one.",
+    "goldenRule": "Most providers should be singletons — use REQUEST scope only for stateful per-request context like TenantContext.",
+    "template": "definition-card",
+    "estimatedDuration": 50,
+    "part": 3
+  },
+  {
+    "id": "ep15",
+    "title": "Repository Pattern",
+    "hook": "Services should never write TypeORM queries. Here's who should — and why it matters for testing.",
+    "analogy": "A librarian: you say what you need, you don't go into the stacks yourself, you don't know how the filing system works — the librarian fetches and hands it back.",
+    "goldenRule": "The repository is the only layer allowed to talk to the database — services ask, it fetches, and tests mock it without a real DB.",
+    "template": "systems-explainer",
+    "estimatedDuration": 50,
+    "part": 3
+  },
+  {
+    "id": "ep16",
+    "title": "Entity",
+    "hook": "Your database schema and your TypeScript type — one class, one source of truth.",
+    "analogy": "A government form template: every filled-in form (database row) must match the template exactly, and revisions become new versions.",
+    "goldenRule": "Never use synchronize: true in production — it can silently drop columns without a migration review.",
+    "template": "code-reveal",
+    "estimatedDuration": 45,
+    "part": 3
+  },
+  {
+    "id": "ep17",
+    "title": "TypeORM Migration",
+    "hook": "There is one thing you should never do to your production database schema. Migrations are how you avoid it.",
+    "analogy": "Git commits for your database: every commit is reversible, you can see the full history, and you never rewrite a past commit in production.",
+    "goldenRule": "Every schema change is a migration with up() and down() — never alter a past migration, always add a new one.",
+    "template": "before-after",
+    "estimatedDuration": 50,
+    "part": 3
+  },
+  {
+    "id": "ep18",
+    "title": "ConfigModule / ConfigService",
+    "hook": "A missing environment variable should crash your app at startup — not at 2am in production.",
+    "analogy": "The official company policy handbook in a locked cabinet: one source, any employee can request a policy by name, and the office doesn't open until the handbook is complete.",
+    "goldenRule": "Validate your .env schema at startup with Joi — if required variables are missing, the app refuses to start.",
+    "template": "step-by-step",
+    "estimatedDuration": 45,
+    "part": 3
+  },
+  {
+    "id": "ep19",
+    "title": "CQRS",
+    "hook": "Your service method is 200 lines of mixed reads and writes. CQRS is how you split that apart for good.",
+    "analogy": "A restaurant with two completely separate kitchens: the order kitchen changes state, the reading kitchen only describes what's available — a waiter from one cannot place orders in the other.",
+    "goldenRule": "Commands change state, Queries read it — mixing them in one service method creates untestable God classes.",
+    "template": "systems-explainer",
+    "estimatedDuration": 55,
+    "part": 4
+  },
+  {
+    "id": "ep20",
+    "title": "CommandBus / QueryBus",
+    "hook": "Your resolver dispatches a command and has zero knowledge of which class handles it. That's the feature.",
+    "analogy": "A national postal sorting facility: you write the letter, drop it in the slot, the facility routes it to the right driver — you never drive to the destination yourself.",
+    "goldenRule": "The bus routes messages to handlers — callers and handlers are fully decoupled and the handler can be replaced without touching the caller.",
+    "template": "systems-explainer",
+    "estimatedDuration": 45,
+    "part": 4
+  },
+  {
+    "id": "ep21",
+    "title": "EventBus / Domain Events",
+    "hook": "Three things happen after a user signs up. None of them belong in the command handler.",
+    "analogy": "A public PA announcement over the office: HR adds to payroll, IT provisions a laptop, the manager books induction — all independently, the PA operator manages none of it.",
+    "goldenRule": "Domain events are past-tense facts — publish after success, and unrelated listeners react independently without the publisher knowing who they are.",
+    "template": "systems-explainer",
+    "estimatedDuration": 50,
+    "part": 4
+  },
+  {
+    "id": "ep22",
+    "title": "Resolver (GraphQL)",
+    "hook": "REST gives you five fixed lanes. GraphQL lets the client drive the shape of every response.",
+    "analogy": "A personal shopper vs a traffic cop: the shopper fetches the exact combination you asked for in one trip, no over-fetching, no three separate API calls.",
+    "goldenRule": "A Resolver is the GraphQL equivalent of a Controller — route to the CommandBus or QueryBus, nothing else.",
+    "template": "before-after",
+    "estimatedDuration": 50,
+    "part": 4
+  },
+  {
+    "id": "ep23",
+    "title": "Passport Strategy",
+    "hook": "JWT for users, API keys for services, OAuth for Google — three mechanisms, one guard system.",
+    "analogy": "Different ID verification lanes at the same border crossing: passport lane, work permit lane, biometrics lane — a passport doesn't get you through the work permit lane.",
+    "goldenRule": "Each strategy is a named provider — guards call strategies by name to authenticate one specific mechanism.",
+    "template": "definition-card",
+    "estimatedDuration": 45,
+    "part": 4
+  },
+  {
+    "id": "ep24",
+    "title": "JWT — HS256 vs RS256",
+    "hook": "With HS256, one compromised microservice can forge tokens for every user in your system.",
+    "analogy": "HS256 is a master key — anyone who has it can lock and unlock. RS256 is a royal wax seal — only the king has the signet ring, anyone can verify the seal but no one can forge it.",
+    "goldenRule": "In multi-service systems, use RS256 — only the auth service holds the private key; downstream services can verify but never forge.",
+    "template": "before-after",
+    "estimatedDuration": 55,
+    "part": 4
+  },
+  {
+    "id": "ep25",
+    "title": "DataLoader & the N+1 Problem",
+    "hook": "100 posts, 100 author queries. That's not a bug — it's GraphQL working exactly as designed, and it will destroy your database.",
+    "analogy": "A barista making one warehouse trip per cup vs one trip for the whole morning rush: 100 customers, 1 trip instead of 100.",
+    "goldenRule": "DataLoader batches N lookups into 1 query — it must be REQUEST-scoped, never shared across requests.",
+    "template": "stat-card",
+    "estimatedDuration": 55,
+    "part": 4
+  },
+  {
+    "id": "ep26",
+    "title": "Bull Queue",
+    "hook": "Sending an email inside an HTTP handler is a timeout waiting to happen.",
+    "analogy": "The ticket rail in a restaurant kitchen: the waiter clips the order and returns to the next table immediately — never stands next to the stove watching the steak cook.",
+    "goldenRule": "Enqueue heavy work and return immediately — a separate worker process handles it asynchronously at its own pace.",
+    "template": "systems-explainer",
+    "estimatedDuration": 50,
+    "part": 4
+  },
+  {
+    "id": "ep27",
+    "title": "Redis PubSub & GraphQL Subscriptions",
+    "hook": "Your GraphQL subscription works perfectly in development — until you add a second server instance in production.",
+    "analogy": "In-memory PubSub is a walkie-talkie: only people in direct radio range receive it. Redis PubSub is a broadcast tower: one station transmits, every radio in the country picks it up.",
+    "goldenRule": "In-memory PubSub breaks with multiple servers — Redis PubSub fans events to every instance so all clients receive updates.",
+    "template": "before-after",
+    "estimatedDuration": 50,
+    "part": 4
+  },
+  {
+    "id": "ep28",
+    "title": "Multi-tenancy",
+    "hook": "One app, one database, hundreds of customers — and none of them can see each other's data.",
+    "analogy": "A cloud storage unit facility: all units share the same building and staff, but every operation must check the unit number first — an accidental open is a catastrophic data breach.",
+    "goldenRule": "Shared tables + tenantId column is the simplest, most cost-efficient multi-tenancy strategy for B2B SaaS.",
+    "template": "systems-explainer",
+    "estimatedDuration": 55,
+    "part": 5
+  },
+  {
+    "id": "ep29",
+    "title": "tenantId Pattern",
+    "hook": "One API field. If the client can set it, they can read any customer's data in your system.",
+    "analogy": "The unit number stamped on everything: every domain row carries the unit number, and it only ever comes from the key issued at the door — never from the visitor's own claim.",
+    "goldenRule": "tenantId comes only from the JWT — never accept it as a client-provided DTO field, never make it a filterable field.",
+    "template": "before-after",
+    "estimatedDuration": 50,
+    "part": 5
+  },
+  {
+    "id": "ep30",
+    "title": "TenantGuard & TenantContext",
+    "hook": "How does tenantId get from the JWT to every service in a request without passing it through every function signature?",
+    "analogy": "An automatic unit key issued at the entrance: the guard stamps it at the door, and every room in the building accepts it without you showing ID again.",
+    "goldenRule": "TenantGuard extracts tenantId into a REQUEST-scoped TenantContext — inject it anywhere in the request chain, no threading required.",
+    "template": "step-by-step",
+    "estimatedDuration": 55,
+    "part": 5
+  },
+  {
+    "id": "ep31",
+    "title": "RBAC — Roles & RolesGuard",
+    "hook": "A viewer calling a mutation is a permissions bug. Here's how to prevent it at the resolver level with two decorators.",
+    "analogy": "The VIP wristband system: a standard wristband doesn't get you into the VIP section — the system checks the band, not your word.",
+    "goldenRule": "@Roles() declares required roles on the handler, RolesGuard enforces them — two decorators, zero manual role checks in business logic.",
+    "template": "code-reveal",
+    "estimatedDuration": 50,
+    "part": 5
+  },
+  {
+    "id": "ep32",
+    "title": "Row-Level Authorization with @Authorize",
+    "hook": "Guards protect the entrance. @Authorize protects the data itself — even if someone gets past the guards.",
+    "analogy": "A turnstile built into the database corridor: even if someone slips past the front door, the turnstile still requires a valid badge to physically reach the data rows.",
+    "goldenRule": "@Authorize merges a WHERE filter at the query builder level — it is architecturally impossible to bypass with a clever query.",
+    "template": "systems-explainer",
+    "estimatedDuration": 55,
+    "part": 5
+  },
+  {
+    "id": "ep33",
+    "title": "Dual-Auth Architecture",
+    "hook": "A user who adds role: 'admin' to their JWT payload still cannot access your admin portal. Here's the cryptographic reason.",
+    "analogy": "Two separate key rings: the user ring and the admin ring are mathematically distinct — a key from one ring is physically incapable of opening the other's locks.",
+    "goldenRule": "User and admin portals use different RSA key pairs — a user JWT is cryptographically invalid against the admin strategy regardless of its payload claims.",
+    "template": "before-after",
+    "estimatedDuration": 55,
+    "part": 5
+  },
+  {
+    "id": "ep34",
+    "title": "Nx Monorepo & Module Boundaries",
+    "hook": "A frontend developer imports a backend class. ESLint catches it before CI even runs.",
+    "analogy": "An apartment building with strict bylaws: tenants cannot enter each other's units, and the building's own alarm enforces it — not just the manager's word.",
+    "goldenRule": "Nx enforces that apps cannot import each other directly — all code sharing goes through libs/, caught at the IDE level.",
+    "template": "systems-explainer",
+    "estimatedDuration": 50,
+    "part": 5
+  },
+  {
+    "id": "ep35",
+    "title": "The Full Request Lifecycle",
+    "hook": "Every NestJS request touches 8 layers in a fixed order. Most production bugs live in exactly one of them.",
+    "analogy": "A building with mandatory checkpoints at every floor: you cannot skip a floor, and each checkpoint has one specific job.",
+    "goldenRule": "Middleware → Guards → Pipes → Interceptors → Handler → Service → DB → Interceptors → Filter — know this order and you know where any bug lives.",
+    "template": "systems-explainer",
+    "estimatedDuration": 60,
+    "part": 5
+  }
+]
