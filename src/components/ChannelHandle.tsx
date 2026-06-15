@@ -17,7 +17,7 @@ export const ChannelHandle: React.FC<ChannelHandleProps> = ({
   bottomPadding = 48,
 }) => {
   const frame = useCurrentFrame();
-  const { fps, width } = useVideoConfig();
+  const { fps } = useVideoConfig();
 
   // Fade in over 0.3s
   const fadeFrames = Math.round(fps * 0.3);
