@@ -1,6 +1,6 @@
 Global context for all tasks:
 I run a YouTube channel @khe_ai about AI systems and engineering.
-My main active project is a NestJS YouTube Shorts series: 27 bite-sized
+My main active project is a NestJS YouTube Shorts series: bite-sized
 episodes explaining NestJS concepts with analogies.
 
 Project folder: ~/nestjs-shorts/
