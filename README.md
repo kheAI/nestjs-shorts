@@ -21,12 +21,34 @@ src/
     CodeBlock         # syntax-highlighted code card
     CountUpNumber     # animated counter
     TypewriterText    # typewriter with blinking cursor
+  templates/          # scene-level layout templates
+    DefinitionCard    # hook → code reveal → golden rule
+    BeforeAfter       # side-by-side comparison with divider
+    CodeReveal        # sequential line typing with context label
+    SystemsExplainer  # labelled items list with stat callout
+    StepByStep        # numbered steps with outcome text
+    StatCard          # single number with context and explanation
   compositions/       # one file per rendered episode
     Ep01Module.tsx
 out/
   rendered/           # raw rendered MP4s
   ready-to-upload/    # final cuts
 ```
+
+## Templates
+
+Each template is a self-contained `React.FC` in `src/templates/` that accepts typed props and handles all scene timing internally. Pass it directly to a Remotion `<Composition>`.
+
+| Template | Key props | Best for |
+|----------|-----------|----------|
+| `DefinitionCard` | `hookLine1`, `hookLine2`, `codeLines[]`, `rule1`, `rule2` | Decorator/concept introductions |
+| `BeforeAfter` | `leftItems[]`, `rightItems[]`, `dividerLabel`, `bottomBanner` | Contrast and migration stories |
+| `CodeReveal` | `lines[]` (with `typingDelay`), `finalLabel`, `context` | Walking through a code snippet |
+| `SystemsExplainer` | `items[]` (label + description), `statNumber`, `statLabel` | Architecture overviews |
+| `StepByStep` | `steps[]` (title + sublabel), `outcomeText` | Request lifecycle, boot sequence |
+| `StatCard` | `contextLabel`, `number`, `unit`, `explanation` | Performance facts, benchmark results |
+
+All templates share the same animation rhythm (fade timings, typewriter speeds, line stagger) and accept `accentColor`, `codeAccentColor`, `channelHandle`, and `durationInFrames` overrides.
 
 ## Commands
 
