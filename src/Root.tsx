@@ -8,6 +8,7 @@ import { StepByStep } from "./templates/StepByStep";
 import { SystemsExplainer } from "./templates/SystemsExplainer";
 import { StatCard } from "./templates/StatCard";
 import { CodeReveal } from "./templates/CodeReveal";
+import { WetelCompositions } from "./wetel/WetelCompositions";
 
 // ─── DefinitionCard preview ───────────────────────────────────────────────────
 
@@ -140,6 +141,7 @@ const CodeRevealPreview: React.FC = () => (
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <WetelCompositions />
       <Composition
         id="MyComp"
         component={MyComposition}

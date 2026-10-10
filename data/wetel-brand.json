@@ -1,0 +1,15 @@
+{
+  "background": "#0b1216",
+  "panel": "#121c22",
+  "panelBorder": "#1f3039",
+  "accent": "#22d3ee",
+  "good": "#4ade80",
+  "bad": "#f87171",
+  "warn": "#fbbf24",
+  "textPrimary": "#f1f5f9",
+  "textSecondary": "#94a3b8",
+  "fontProse": "Inter, system-ui, sans-serif",
+  "channelName": "Wetel",
+  "site": "wetel.dev",
+  "dimensions": { "width": 1080, "height": 1920, "fps": 30 }
+}
