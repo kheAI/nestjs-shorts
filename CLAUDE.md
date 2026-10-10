@@ -66,3 +66,7 @@ Rules:
 - If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
 - Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
 - After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+
+## Wetel channel shorts (separate from the NestJS series above)
+
+The Wetel YouTube channel is https://www.youtube.com/@weteldev (NOT @khe_ai, which is a personal channel). Wetel shorts live in `data/wetel-shorts.json` with the engine in `src/wetel/`; workflow and rules: `README.md` ("Wetel explainer shorts") and `kb/temp/02-operations/14-youtube-shorts-pipeline.md` in intelligence-platform-backend. Never mention Webby/WebbyGroup/WebbyIntel in Wetel content. Never commit the Gemini key; `scripts/make-short.sh` reads it from the backend `.env` at run time.
