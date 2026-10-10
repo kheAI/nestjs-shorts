@@ -40,6 +40,7 @@ for (const s of shorts) {
     chars += sc.narration?.length ?? 0;
     if (sc.kind === "cards") {
       if (!sc.items?.length || sc.items.length > 4) fail(id, i, "cards needs 1-4 items");
+      if (sc.items?.length === 4 && sc.title.length > 24) fail(id, i, "4-card scenes need a one-line title (max 24 chars) or the last card reaches the mascot");
       let h = titleHeight(sc.title) + 44;
       for (const it of sc.items ?? []) {
         if (!TONES.includes(it.tone)) fail(id, i, `bad tone ${it.tone}`);

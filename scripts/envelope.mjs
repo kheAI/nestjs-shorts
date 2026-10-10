@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Loudness envelope per scene (one 0-100 value per video frame at 30 fps) so the on-screen mascot's mouth
 // follows the narration. Reads public/audio/<id>/<n>.mp3, writes data/wetel-shorts-envelope.json.
-// Pure ffmpeg + node, no network. Run after narrate.mjs.
+// Pure ffmpeg + node, no network. Run after narrate.mjs. Usage: node scripts/envelope.mjs [<short-id>...]
+// With ids, only those shorts are (re)computed and the rest of the file is kept.
 import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -11,9 +12,12 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const FPS = 30;
 const RATE = 8000;
 const shorts = JSON.parse(readFileSync(join(root, "data/wetel-shorts.json"), "utf8"));
-const out = {};
+const envPath = join(root, "data/wetel-shorts-envelope.json");
+const only = process.argv.slice(2);
+const out = only.length && existsSync(envPath) ? JSON.parse(readFileSync(envPath, "utf8")) : {};
 
 for (const short of shorts) {
+  if (only.length && !only.includes(short.id)) continue;
   out[short.id] = short.scenes.map((_, i) => {
     const mp3 = join(root, "public/audio", short.id, `${i}.mp3`);
     if (!existsSync(mp3)) throw new Error(`Missing ${mp3}; run narrate.mjs first`);
@@ -34,5 +38,5 @@ for (const short of shorts) {
     return rms.map((v) => Math.min(100, Math.round((v / peak) * 100)));
   });
 }
-writeFileSync(join(root, "data/wetel-shorts-envelope.json"), JSON.stringify(out) + "\n");
+writeFileSync(envPath, JSON.stringify(out) + "\n");
 console.log("envelope written for", Object.keys(out).join(", "));
