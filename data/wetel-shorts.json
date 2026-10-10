@@ -914,5 +914,330 @@
         "narration": "The multi tenancy and authentication details are in the docs at wetel dot dev slash docs."
       }
     ]
+  },
+  {
+    "id": "wetel09-when-not-to-use",
+    "title": "When not to use an AI employee",
+    "source": "wetel-site blog: when-not-to-use-an-ai-employee",
+    "scenes": [
+      {
+        "kind": "hook",
+        "eyebrow": "AI employees · 09",
+        "title": "Would you hire a person to add a column?",
+        "subtitle": "A buyer's guide that says no.",
+        "narration": "You wouldn't hire a person to add up a column of numbers. A calculator does it better. The same goes for an AI employee. Here is when we'd tell you not to use one, even though we build them."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "No 1 and 2",
+        "title": "Use a form instead",
+        "items": [
+          {
+            "label": "Fixed steps, exact numbers",
+            "text": "If it's \"if X then Y\", write it that way",
+            "tone": "warn"
+          },
+          {
+            "label": "Irreversible, and nobody checks",
+            "text": "Keep that action with a person",
+            "tone": "bad"
+          }
+        ],
+        "narration": "First, if the job has fixed steps and exact numbers, a form or a script is cheaper and gives the same answer every time. Second, if a wrong action can't be undone and nobody will check it, keep that action with a person, and let the AI prepare it."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "No 3",
+        "title": "What we haven't built",
+        "items": [
+          {
+            "label": "Phone calls",
+            "text": "Not built. On the roadmap, not a date",
+            "tone": "warn"
+          },
+          {
+            "label": "Memory across conversations",
+            "text": "Not built. Plan it from your own system",
+            "tone": "warn"
+          },
+          {
+            "label": "Event triggers",
+            "text": "Not built. Schedules and API calls work",
+            "tone": "warn"
+          }
+        ],
+        "narration": "Third, if you need something we haven't built. Phone calls. Memory from one separate conversation to the next. Or starting work when a record changes in another system. Those are direction, not dates."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "No 4 and 5",
+        "title": "Nobody can write it down",
+        "items": [
+          {
+            "label": "No written process",
+            "text": "\"Handle it the way Sarah does\" is not a process",
+            "tone": "warn"
+          },
+          {
+            "label": "Certification required",
+            "text": "We hold no independent security certification today",
+            "tone": "warn"
+          }
+        ],
+        "narration": "Fourth, if nobody can write the process down, an AI employee won't fix that. Writing it down is the first project, and it doesn't need us. And fifth, if your purchase requires a security certification, we hold none today."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "When it fits",
+        "title": "Four signs",
+        "items": [
+          {
+            "label": "Own words",
+            "text": "People ask in their own words",
+            "tone": "good"
+          },
+          {
+            "label": "Steps on paper",
+            "text": "You can write the steps down",
+            "tone": "good"
+          },
+          {
+            "label": "A named person",
+            "text": "Owns the consequential actions",
+            "tone": "good"
+          },
+          {
+            "label": "Where we connect",
+            "text": "Your site, your app, one messaging app",
+            "tone": "good"
+          }
+        ],
+        "narration": "It tends to fit when four things are true. People ask in their own words. You can write the steps down. The consequential actions have a named person. And the work arrives where we connect today."
+      },
+      {
+        "kind": "cta",
+        "eyebrow": "Not sure?",
+        "title": "We'll tell you honestly",
+        "subtitle": "wetel.dev",
+        "narration": "If you're not sure which side of the line your idea falls on, ask us. We'd rather lose a deal than win it on a misunderstanding. Start at wetel dot dev."
+      }
+    ]
+  },
+  {
+    "id": "wetel10-reads-a-photo",
+    "title": "How an AI employee reads a photo",
+    "source": "wetel-site blog: how-an-ai-employee-reads-a-photo",
+    "scenes": [
+      {
+        "kind": "hook",
+        "eyebrow": "AI employees · 10",
+        "title": "A customer sends a photo of a parcel label.",
+        "subtitle": "What happens next?",
+        "narration": "A customer sends a photo of a parcel label. Think of the clerk at a parcel counter. They look at the slip, copy the number, and read the result back. An AI employee does the same job."
+      },
+      {
+        "kind": "flow",
+        "eyebrow": "The short version",
+        "title": "One step does the reading",
+        "node": "llm step",
+        "branches": [
+          {
+            "label": "fetches",
+            "text": "Gets the photos from their links",
+            "tone": "accent"
+          },
+          {
+            "label": "shrinks",
+            "text": "Resized for the model",
+            "tone": "accent"
+          },
+          {
+            "label": "saves",
+            "text": "What it read goes in a variable",
+            "tone": "good"
+          }
+        ],
+        "narration": "One step in the workflow does the reading. It fetches the photos from their links, shrinks them, sends them to the model, and saves what it read into a named variable. Later steps use that variable like any other text."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Three ways in",
+        "title": "How the photo arrives",
+        "items": [
+          {
+            "label": "A marker in the message",
+            "text": "Your channel writes the image link into the text",
+            "tone": "accent"
+          },
+          {
+            "label": "Structured attachments",
+            "text": "Up to 10 per message",
+            "tone": "accent"
+          },
+          {
+            "label": "A list in a variable",
+            "text": "For batch jobs and forms",
+            "tone": "accent"
+          }
+        ],
+        "narration": "There are three ways the photo can arrive. A marker in the message text. Structured attachments on the message, up to ten. Or a list of links in a variable, for batch jobs and forms."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Two safeguards",
+        "title": "Don't let it guess",
+        "items": [
+          {
+            "label": "Read only what's visible",
+            "text": "Tell it never to infer from file names",
+            "tone": "warn"
+          },
+          {
+            "label": "Failed images",
+            "text": "The model is told how many could not load",
+            "tone": "warn"
+          }
+        ],
+        "narration": "Two safeguards. A model can read a word that's only in the file name, so tell it to describe only what is visible. And if some images fail to load, the model is told how many, so it doesn't describe five pictures as if they were all there was."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Limits and proof",
+        "title": "Check what it read",
+        "items": [
+          {
+            "label": "Limits",
+            "text": "Up to 40 images, originals up to 20 megabytes",
+            "tone": "accent"
+          },
+          {
+            "label": "The run record",
+            "text": "Shows requested, attached and skipped, and why",
+            "tone": "good"
+          }
+        ],
+        "narration": "The documented limits are up to forty images per step, with originals up to twenty megabytes, shrunk for you. And every run leaves a record that says how many images were requested, attached and skipped, and why."
+      },
+      {
+        "kind": "cta",
+        "eyebrow": "Try the recipe",
+        "title": "A photo-reading agent, step by step",
+        "subtitle": "wetel.dev/docs",
+        "narration": "The photo reading recipe, with the exact configuration, is in the docs at wetel dot dev slash docs."
+      }
+    ]
+  },
+  {
+    "id": "wetel11-credits",
+    "title": "What are credits, and what do they not promise?",
+    "source": "wetel-site blog: what-are-credits-and-what-do-they-not-promise",
+    "scenes": [
+      {
+        "kind": "hook",
+        "eyebrow": "AI employees · 11",
+        "title": "Credits are not a prepaid balance.",
+        "subtitle": "Think of a company card.",
+        "narration": "Credits sound like a prepaid balance. They're not. Think of a company card with a monthly limit and a monthly statement."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "The statement",
+        "title": "What credits are",
+        "items": [
+          {
+            "label": "A unit for reading usage",
+            "text": "One credit is a ten-thousandth of a US dollar of cost",
+            "tone": "accent"
+          },
+          {
+            "label": "Broken down",
+            "text": "By model, operation and bucket",
+            "tone": "accent"
+          },
+          {
+            "label": "Your own usage",
+            "text": "One query returns the month's summary",
+            "tone": "accent"
+          }
+        ],
+        "narration": "A credit is a unit for reading your AI usage. One credit is a ten thousandth of a US dollar of underlying cost. Your workspace can see its monthly usage in dollars and credits, broken down by model and operation."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "The limit",
+        "title": "A monthly spend ceiling",
+        "items": [
+          {
+            "label": "Checked before work starts",
+            "text": "Chat turns, tasks and model calls",
+            "tone": "accent"
+          },
+          {
+            "label": "When it's reached",
+            "text": "New work is refused until next month",
+            "tone": "warn"
+          },
+          {
+            "label": "A guard, not an exact meter",
+            "text": "Work already running can pass it",
+            "tone": "warn"
+          }
+        ],
+        "narration": "Separately, each plan has a monthly ceiling on language model spend. It's checked before the work starts, and once it's reached, new work is refused until the month rolls over. It's a guard, not an exact meter, so work already under way can carry past it."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "What credits don't promise",
+        "title": "Not built",
+        "items": [
+          {
+            "label": "No prepaid balance",
+            "text": "Nothing stops at zero credits",
+            "tone": "warn"
+          },
+          {
+            "label": "No published rate card",
+            "text": "No price per role or per AI employee",
+            "tone": "warn"
+          },
+          {
+            "label": "Estimates",
+            "text": "Model credit figures are a blended conversion",
+            "tone": "warn"
+          }
+        ],
+        "narration": "So here is what credits don't promise. There is no prepaid balance, so nothing stops at zero. There is no published rate card, and no price per role. And the credit figures for model usage are an estimate, so plan with them, don't reconcile against them."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Fair to know",
+        "title": "What's not charged",
+        "items": [
+          {
+            "label": "Only the provider that answered",
+            "text": "If one fails and another answers",
+            "tone": "good"
+          },
+          {
+            "label": "Failed tool calls",
+            "text": "Not charged",
+            "tone": "good"
+          },
+          {
+            "label": "A failed run",
+            "text": "Completed steps stay counted",
+            "tone": "warn"
+          }
+        ],
+        "narration": "Two fair details. If one model provider fails and another answers, only the one that answered is billed. And a failed tool call isn't charged. But a failed run isn't refunded, so completed steps stay counted."
+      },
+      {
+        "kind": "cta",
+        "eyebrow": "Read your usage",
+        "title": "Wetel reports usage. It doesn't bill it yet.",
+        "subtitle": "wetel.dev/docs",
+        "narration": "Today Wetel reports your usage, it doesn't bill it yet. The details are on the pricing page at wetel dot dev slash docs."
+      }
+    ]
   }
 ]
