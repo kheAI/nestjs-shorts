@@ -2,7 +2,8 @@
 // Narration pipeline: data/wetel-shorts.json -> public/audio/<id>/<n>.mp3 + data/wetel-shorts-timing.json
 // Engines: `gemini` (default, human-sounding; needs GEMINI_API_KEY in the environment, never committed) or
 // `say` (offline macOS fallback, robotic). Re-run after editing any narration line.
-// Usage: GEMINI_API_KEY=... node scripts/narrate.mjs [--engine gemini|say] [--voice Sulafat] [--rate 170] [<short-id>...]
+// Usage: GEMINI_API_KEY=... node scripts/narrate.mjs [--engine gemini|say] [--voice Sulafat] [--rate 170] [--match <regex>] [<short-id>...]
+// --match re-voices only scenes whose narration matches (e.g. after a pronunciation fix); other scenes keep their audio and timing.
 import { execFileSync } from "node:child_process";
 import { mkdirSync, mkdtempSync, readFileSync, writeFileSync, existsSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -20,10 +21,12 @@ const voice = opt("voice", engine === "say" ? "Daniel" : "Sulafat");
 const model = process.env.GEMINI_TTS_MODEL || "gemini-3.8-flash-lite-tts";
 // No style prefix: the lite TTS model reads instructions aloud instead of following them (measured 2026-10-10).
 const rate = opt("rate", "170");
+const match = opt("match", "") ? new RegExp(opt("match", ""), "i") : null;
 const only = args.filter((a, i) => !a.startsWith("--") && !args[i - 1]?.startsWith("--"));
 
 // `say` mispronounces the brand name; spell it the way it is said.
-const spoken = (t) => (engine === "say" ? t.replace(/Wetel/g, "Wettel") : t);
+// Gemini says "Wetel" as "WET-tel"; "We Tel" gives the intended "wee-tel". `say` needs its own respelling.
+const spoken = (t) => t.replace(/wetel/gi, engine === "say" ? "Wettel" : "We Tel");
 
 async function geminiPcm(text, pcmPath, attempt = 1) {
   const key = process.env.GEMINI_API_KEY;
@@ -63,8 +66,9 @@ try {
     if (only.length && !only.includes(short.id)) continue;
     const dir = join(root, "public/audio", short.id);
     mkdirSync(dir, { recursive: true });
-    timing[short.id] = [];
+    timing[short.id] ??= [];
     for (const [i, scene] of short.scenes.entries()) {
+      if (match && !match.test(scene.narration) && timing[short.id][i]) continue;
       const mp3 = join(dir, `${i}.mp3`);
       if (engine === "say") {
         const aiff = join(tmp, `${short.id}-${i}.aiff`);
@@ -79,7 +83,7 @@ try {
       const out = execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", mp3]).toString();
       const seconds = Math.round(parseFloat(out) * 1000) / 1000;
       console.log(`${short.id} scene ${i}: ${seconds}s`);
-      timing[short.id].push(seconds);
+      timing[short.id][i] = seconds;
       writeFileSync(timingPath, JSON.stringify(timing, null, 2) + "\n");
     }
     const total = timing[short.id].reduce((a, b) => a + b, 0);

@@ -12,6 +12,8 @@ import {
 } from "remotion";
 import brand from "../../data/wetel-brand.json";
 import shorts from "../../data/wetel-shorts.json";
+import envelopes from "../../data/wetel-shorts-envelope.json";
+import { TalkingCapybara } from "./TalkingCapybara";
 import {
   CardsScene,
   CtaScene,
@@ -305,6 +307,10 @@ const CtaView: React.FC<{ scene: CtaScene }> = ({ scene }) => {
   );
 };
 
+/** Narration spells URLs the way they are spoken; captions show them the way they are written. */
+const writtenUrls = (t: string) =>
+  t.replace(/wetel dot dev slash docs/gi, "wetel.dev/docs").replace(/wetel dot dev/gi, "wetel.dev");
+
 /** Splits narration into sentence captions, each shown for time proportional to its length. */
 const Captions: React.FC<{ text: string; frames: number }> = ({ text, frames }) => {
   const frame = useCurrentFrame();
@@ -334,7 +340,7 @@ const Captions: React.FC<{ text: string; frames: number }> = ({ text, frames }) 
         textShadow: "0 2px 12px rgba(0,0,0,0.8)",
       }}
     >
-      {active}
+      {writtenUrls(active)}
     </div>
   );
 };
@@ -381,6 +387,9 @@ export const ExplainerShort: React.FC<ExplainerProps> = ({ shortId, sceneSeconds
               <SceneView scene={scene} frames={frames} />
             </AbsoluteFill>
             <Captions text={scene.narration} frames={frames} />
+            <div style={{ position: "absolute", left: SAFE.left, top: SAFE.captionTop - 150 }}>
+              <TalkingCapybara envelope={(envelopes as Record<string, number[][]>)[short.id][i]} size={230} />
+            </div>
           </Sequence>
         );
       })}
