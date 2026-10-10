@@ -12,6 +12,8 @@ import {
 } from "remotion";
 import brand from "../../data/wetel-brand.json";
 import shorts from "../../data/wetel-shorts.json";
+import envelopes from "../../data/wetel-shorts-envelope.json";
+import { TalkingCapybara } from "./TalkingCapybara";
 import {
   CardsScene,
   CtaScene,
@@ -36,7 +38,7 @@ const toneColor = (tone: Tone): string =>
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
 // Shorts UI covers the bottom ~380px and the right edge; keep everything inside this box.
-const SAFE = { left: 72, right: 120, top: 260, captionTop: 1290, bottomLimit: 1540 };
+const SAFE = { left: 72, right: 120, top: 230, captionTop: 1385, bottomLimit: 1550 };
 
 const fadeUp = (frame: number, start: number, dur = 14) => ({
   opacity: interpolate(frame, [start, start + dur], [0, 1], clamp),
@@ -305,6 +307,10 @@ const CtaView: React.FC<{ scene: CtaScene }> = ({ scene }) => {
   );
 };
 
+/** Narration spells URLs the way they are spoken; captions show them the way they are written. */
+const writtenUrls = (t: string) =>
+  t.replace(/wetel dot dev slash docs/gi, "wetel.dev/docs").replace(/wetel dot dev/gi, "wetel.dev");
+
 /** Splits narration into sentence captions, each shown for time proportional to its length. */
 const Captions: React.FC<{ text: string; frames: number }> = ({ text, frames }) => {
   const frame = useCurrentFrame();
@@ -334,7 +340,7 @@ const Captions: React.FC<{ text: string; frames: number }> = ({ text, frames }) 
         textShadow: "0 2px 12px rgba(0,0,0,0.8)",
       }}
     >
-      {active}
+      {writtenUrls(active)}
     </div>
   );
 };
@@ -381,6 +387,9 @@ export const ExplainerShort: React.FC<ExplainerProps> = ({ shortId, sceneSeconds
               <SceneView scene={scene} frames={frames} />
             </AbsoluteFill>
             <Captions text={scene.narration} frames={frames} />
+            <div style={{ position: "absolute", left: SAFE.left, top: SAFE.captionTop - 135 }}>
+              <TalkingCapybara envelope={(envelopes as Record<string, number[][]>)[short.id][i]} size={190} />
+            </div>
           </Sequence>
         );
       })}
@@ -396,7 +405,7 @@ export const ExplainerShort: React.FC<ExplainerProps> = ({ shortId, sceneSeconds
           letterSpacing: "0.08em",
         }}
       >
-        {brand.channelName.toUpperCase()} · {brand.site}
+        {brand.channelHandle} · {brand.site}
       </div>
     </AbsoluteFill>
   );

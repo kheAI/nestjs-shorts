@@ -72,12 +72,14 @@ npx remotion still <id> --frame=30 --scale=0.3   # spot-check a frame
 
 ## Wetel explainer shorts (narrated)
 
-Data-driven narrated shorts for the Wetel channel. Script = `data/wetel-shorts.json` (scenes with a `kind`, on-screen content and a `narration` line), brand = `data/wetel-brand.json`, engine = `src/wetel/`. One composition is registered per short id.
+Data-driven narrated shorts for the Wetel channel (https://www.youtube.com/@weteldev; the `@khe_ai` channel is a separate personal one and not used for these). Script = `data/wetel-shorts.json` (scenes with a `kind`, on-screen content and a `narration` line), brand = `data/wetel-brand.json`, engine = `src/wetel/`. One composition is registered per short id.
 
 ```bash
-node scripts/narrate.mjs                      # voice (macOS say + ffmpeg) -> public/audio + data/wetel-shorts-timing.json
+GEMINI_API_KEY=... node scripts/narrate.mjs   # voice (Gemini TTS, voice Sulafat; --engine say = offline robotic fallback) -> public/audio + data/wetel-shorts-timing.json
 npx remotion still src/index.ts <id> out/stills/x.png --frame=300 --scale=0.4   # spot-check
 npx remotion render src/index.ts <id> out/rendered/<id>.mp4 --concurrency=2
 ```
+
+**New short in one command each:** `node scripts/new-short.mjs <NN> <slug> <blog-post-slug> "<Title>"` scaffolds an entry; fill it in; `node scripts/validate-shorts.mjs` lints it (scene kinds, item counts, estimated height, banned words, duration); `scripts/make-short.sh <id>` then validates, voices (if needed), builds the mouth envelope, renders and copies to `out/ready-to-upload/`.
 
 Scene length follows the narration, so re-run `narrate.mjs` after editing any narration line. Upload copy lives in `metadata/<id>.md`. Full SOP: `kb/temp/02-operations/14-youtube-shorts-pipeline.md` in intelligence-platform-backend.
