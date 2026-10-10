@@ -75,7 +75,7 @@ npx remotion still <id> --frame=30 --scale=0.3   # spot-check a frame
 Data-driven narrated shorts for the Wetel channel (https://www.youtube.com/@weteldev; the `@khe_ai` channel is a separate personal one and not used for these). Script = `data/wetel-shorts.json` (scenes with a `kind`, on-screen content and a `narration` line), brand = `data/wetel-brand.json`, engine = `src/wetel/`. One composition is registered per short id.
 
 ```bash
-node scripts/narrate.mjs                      # voice (macOS say + ffmpeg) -> public/audio + data/wetel-shorts-timing.json
+GEMINI_API_KEY=... node scripts/narrate.mjs   # voice (Gemini TTS, voice Sulafat; --engine say = offline robotic fallback) -> public/audio + data/wetel-shorts-timing.json
 npx remotion still src/index.ts <id> out/stills/x.png --frame=300 --scale=0.4   # spot-check
 npx remotion render src/index.ts <id> out/rendered/<id>.mp4 --concurrency=2
 ```

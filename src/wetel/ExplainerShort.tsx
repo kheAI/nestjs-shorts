@@ -396,7 +396,7 @@ export const ExplainerShort: React.FC<ExplainerProps> = ({ shortId, sceneSeconds
           letterSpacing: "0.08em",
         }}
       >
-        {brand.channelName.toUpperCase()} · {brand.site}
+        {brand.channelHandle} · {brand.site}
       </div>
     </AbsoluteFill>
   );
