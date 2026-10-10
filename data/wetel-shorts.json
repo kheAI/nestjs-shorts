@@ -1,0 +1,152 @@
+[
+  {
+    "id": "wetel01-chatbot-assistant-employee",
+    "title": "Chatbot, assistant or AI employee?",
+    "source": "wetel-site blog: chatbot-assistant-or-ai-employee-what-is-the-difference",
+    "scenes": [
+      {
+        "kind": "hook",
+        "eyebrow": "AI employees · 01",
+        "title": "Chatbot. Assistant. AI employee.",
+        "subtitle": "Three words vendors use as if they mean the same thing.",
+        "narration": "Chatbot. Assistant. AI employee. Vendors use all three words like they mean the same thing. They don't."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "1 · Chatbot",
+        "title": "A bell on the counter",
+        "items": [
+          { "label": "You ring it", "text": "It reads out the opening hours", "tone": "muted" },
+          { "label": "Words in, words out", "text": "No access to your systems", "tone": "muted" }
+        ],
+        "narration": "A chatbot is a bell on the counter. You ring it, and a recorded voice reads out the opening hours. Words in, words out. Useful, but that's all it does."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "2 · Assistant",
+        "title": "A helpful stranger",
+        "items": [
+          { "label": "Great answers", "text": "Drafts, summaries, explanations", "tone": "muted" },
+          { "label": "Doesn't work here", "text": "You copy the result into the real system yourself", "tone": "warn" }
+        ],
+        "narration": "An assistant is a helpful stranger in the waiting room. Great answers, but they don't work here. You still copy the result into the real system yourself."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "3 · AI employee",
+        "title": "A colleague at the desk",
+        "items": [
+          { "label": "A role", "text": "A job, not just a prompt", "tone": "accent" },
+          { "label": "A procedure you can read", "text": "Steps you can open and change", "tone": "accent" },
+          { "label": "Works in your systems", "text": "Looks up and updates real records", "tone": "accent" },
+          { "label": "A manager", "text": "A person in your company supervises it", "tone": "accent" }
+        ],
+        "narration": "An AI employee is the colleague at the desk. It has a role. It follows a procedure you can read. It works inside your systems. And a person in your company is in charge of it."
+      },
+      {
+        "kind": "table",
+        "eyebrow": "The test",
+        "title": "What happens after the answer?",
+        "columns": ["Chatbot", "Assistant", "AI employee"],
+        "rows": [
+          { "label": "Acts in your systems", "values": ["No", "Rarely", "Yes"] },
+          { "label": "Follows your procedure", "values": ["Script", "Improvises", "Yes"] },
+          { "label": "Record of each run", "values": ["Rarely", "Chat log", "Step by step"] },
+          { "label": "Who answers for it", "values": ["Nobody", "The typist", "A named person"] }
+        ],
+        "narration": "Here's the test. Ask what happens after the answer. Does it act in your systems? Does it follow your procedure? Does it leave a record? And who answers for it?"
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Honest gap",
+        "title": "It doesn't ask first by default",
+        "items": [
+          { "label": "In Wetel today", "text": "An agent pauses only where you add an approval step", "tone": "warn" }
+        ],
+        "narration": "One honest gap. In Wetel, an AI employee does not ask first by default. It pauses only where you add an approval step."
+      },
+      {
+        "kind": "cta",
+        "eyebrow": "Where to start",
+        "title": "One job. One procedure. One named person.",
+        "subtitle": "wetel.dev",
+        "narration": "So start small. Pick one job. Write down the steps. Name the person in charge. The full guide is on wetel dot dev."
+      }
+    ]
+  },
+  {
+    "id": "wetel02-nobody-approves",
+    "title": "What if nobody approves in time?",
+    "source": "wetel-site blog: what-happens-when-nobody-approves-in-time",
+    "scenes": [
+      {
+        "kind": "hook",
+        "eyebrow": "AI employees · 02",
+        "title": "The manager is on holiday. Now what?",
+        "subtitle": "Your AI employee asked for approval. Nobody answered.",
+        "narration": "Your AI employee asked a manager for approval before doing something risky. The manager is on holiday. Now what?"
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "The setup",
+        "title": "An approval is a step you add",
+        "items": [
+          { "label": "Run pauses", "text": "Until a workspace owner decides", "tone": "accent" },
+          { "label": "Owner is notified", "text": "In the app, with an approvals inbox", "tone": "accent" },
+          { "label": "Not automatic", "text": "Nothing pauses unless you add the step", "tone": "warn" }
+        ],
+        "narration": "First, an approval is a step you add to a workflow. The run pauses until a workspace owner decides. Wetel never pauses anything for approval on its own."
+      },
+      {
+        "kind": "flow",
+        "eyebrow": "Three paths",
+        "title": "Every approval needs all three",
+        "node": "approval",
+        "branches": [
+          { "label": "approved", "text": "Carry on", "tone": "good" },
+          { "label": "rejected", "text": "Decline politely", "tone": "bad" },
+          { "label": "expired", "text": "Tell the customer someone will follow up", "tone": "warn" }
+        ],
+        "narration": "Every approval step needs three labelled paths. Approved. Rejected. And expired. Wetel refuses to save a workflow that is missing one, so the no answer case always goes somewhere you chose."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "The clock",
+        "title": "Silence is never a yes",
+        "items": [
+          { "label": "72 hours", "text": "The default wait", "tone": "accent" },
+          { "label": "Up to 14 days", "text": "Set per step", "tone": "accent" },
+          { "label": "Then it expires", "text": "A late approve is refused, not acted on", "tone": "warn" }
+        ],
+        "narration": "Silence is never a yes. By default a request waits seventy two hours, and you can set it up to fourteen days. After that it expires, and a late approve is refused, not acted on."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "The expired path",
+        "title": "Put something safe on it",
+        "items": [
+          { "label": "Do", "text": "\"I haven't heard back yet. Someone will follow up.\"", "tone": "good" },
+          { "label": "Don't", "text": "The risky action itself", "tone": "bad" }
+        ],
+        "narration": "So put something safe on the expired path. Tell the customer nobody has decided yet and a person will follow up. Never run the risky action itself. If the step needed a yes, no answer is not a yes."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Good to know",
+        "title": "Test it without waiting",
+        "items": [
+          { "label": "Draft test", "text": "Simulate approved, rejected or expired instantly", "tone": "accent" },
+          { "label": "Notices today", "text": "In-app only. Email is not sent yet", "tone": "warn" }
+        ],
+        "narration": "You can test every outcome in a draft run without waiting. And one honest note: notices are in the app only today. Email is not sent yet."
+      },
+      {
+        "kind": "cta",
+        "eyebrow": "Build it",
+        "title": "Human approval, step by step",
+        "subtitle": "wetel.dev/docs",
+        "narration": "The full walkthrough, from the approval step to the expired path, is in the docs at wetel dot dev slash docs."
+      }
+    ]
+  }
+]
