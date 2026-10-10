@@ -80,4 +80,6 @@ npx remotion still src/index.ts <id> out/stills/x.png --frame=300 --scale=0.4   
 npx remotion render src/index.ts <id> out/rendered/<id>.mp4 --concurrency=2
 ```
 
+**New short in one command each:** `node scripts/new-short.mjs <NN> <slug> <blog-post-slug> "<Title>"` scaffolds an entry; fill it in; `node scripts/validate-shorts.mjs` lints it (scene kinds, item counts, estimated height, banned words, duration); `scripts/make-short.sh <id>` then validates, voices (if needed), builds the mouth envelope, renders and copies to `out/ready-to-upload/`.
+
 Scene length follows the narration, so re-run `narrate.mjs` after editing any narration line. Upload copy lives in `metadata/<id>.md`. Full SOP: `kb/temp/02-operations/14-youtube-shorts-pipeline.md` in intelligence-platform-backend.

@@ -16,8 +16,16 @@
         "eyebrow": "1 · Chatbot",
         "title": "A bell on the counter",
         "items": [
-          { "label": "You ring it", "text": "It reads out the opening hours", "tone": "muted" },
-          { "label": "Words in, words out", "text": "No access to your systems", "tone": "muted" }
+          {
+            "label": "You ring it",
+            "text": "It reads out the opening hours",
+            "tone": "muted"
+          },
+          {
+            "label": "Words in, words out",
+            "text": "No access to your systems",
+            "tone": "muted"
+          }
         ],
         "narration": "A chatbot is a bell on the counter. You ring it, and a recorded voice reads out the opening hours. Words in, words out. Useful, but that's all it does."
       },
@@ -26,8 +34,16 @@
         "eyebrow": "2 · Assistant",
         "title": "A helpful stranger",
         "items": [
-          { "label": "Great answers", "text": "Drafts, summaries, explanations", "tone": "muted" },
-          { "label": "Doesn't work here", "text": "You copy the result into the real system yourself", "tone": "warn" }
+          {
+            "label": "Great answers",
+            "text": "Drafts, summaries, explanations",
+            "tone": "muted"
+          },
+          {
+            "label": "Doesn't work here",
+            "text": "You copy the result into the real system yourself",
+            "tone": "warn"
+          }
         ],
         "narration": "An assistant is a helpful stranger in the waiting room. Great answers, but they don't work here. You still copy the result into the real system yourself."
       },
@@ -36,10 +52,26 @@
         "eyebrow": "3 · AI employee",
         "title": "A colleague at the desk",
         "items": [
-          { "label": "A role", "text": "A job, not just a prompt", "tone": "accent" },
-          { "label": "A procedure you can read", "text": "Steps you can open and change", "tone": "accent" },
-          { "label": "Works in your systems", "text": "Looks up and updates real records", "tone": "accent" },
-          { "label": "A manager", "text": "A person in your company supervises it", "tone": "accent" }
+          {
+            "label": "A role",
+            "text": "A job, not just a prompt",
+            "tone": "accent"
+          },
+          {
+            "label": "A procedure you can read",
+            "text": "Steps you can open and change",
+            "tone": "accent"
+          },
+          {
+            "label": "Works in your systems",
+            "text": "Looks up and updates real records",
+            "tone": "accent"
+          },
+          {
+            "label": "A manager",
+            "text": "A person in your company supervises it",
+            "tone": "accent"
+          }
         ],
         "narration": "An AI employee is the colleague at the desk. It has a role. It follows a procedure you can read. It works inside your systems. And a person in your company is in charge of it."
       },
@@ -47,12 +79,44 @@
         "kind": "table",
         "eyebrow": "The test",
         "title": "What happens after the answer?",
-        "columns": ["Chatbot", "Assistant", "AI employee"],
+        "columns": [
+          "Chatbot",
+          "Assistant",
+          "AI employee"
+        ],
         "rows": [
-          { "label": "Acts in your systems", "values": ["No", "Rarely", "Yes"] },
-          { "label": "Follows your procedure", "values": ["Script", "Improvises", "Yes"] },
-          { "label": "Record of each run", "values": ["Rarely", "Chat log", "Step by step"] },
-          { "label": "Who answers for it", "values": ["Nobody", "The typist", "A named person"] }
+          {
+            "label": "Acts in your systems",
+            "values": [
+              "No",
+              "Rarely",
+              "Yes"
+            ]
+          },
+          {
+            "label": "Follows your procedure",
+            "values": [
+              "Script",
+              "Improvises",
+              "Yes"
+            ]
+          },
+          {
+            "label": "Record of each run",
+            "values": [
+              "Rarely",
+              "Chat log",
+              "Step by step"
+            ]
+          },
+          {
+            "label": "Who answers for it",
+            "values": [
+              "Nobody",
+              "The typist",
+              "A named person"
+            ]
+          }
         ],
         "narration": "Here's the test. Ask what happens after the answer. Does it act in your systems? Does it follow your procedure? Does it leave a record? And who answers for it?"
       },
@@ -61,7 +125,11 @@
         "eyebrow": "Honest gap",
         "title": "It doesn't ask first by default",
         "items": [
-          { "label": "In Wetel today", "text": "An agent pauses only where you add an approval step", "tone": "warn" }
+          {
+            "label": "In Wetel today",
+            "text": "An agent pauses only where you add an approval step",
+            "tone": "warn"
+          }
         ],
         "narration": "One honest gap. In Wetel, an AI employee does not ask first by default. It pauses only where you add an approval step."
       },
@@ -91,9 +159,21 @@
         "eyebrow": "The setup",
         "title": "An approval is a step you add",
         "items": [
-          { "label": "Run pauses", "text": "Until a workspace owner decides", "tone": "accent" },
-          { "label": "Owner is notified", "text": "In the app, with an approvals inbox", "tone": "accent" },
-          { "label": "Not automatic", "text": "Nothing pauses unless you add the step", "tone": "warn" }
+          {
+            "label": "Run pauses",
+            "text": "Until a workspace owner decides",
+            "tone": "accent"
+          },
+          {
+            "label": "Owner is notified",
+            "text": "In the app, with an approvals inbox",
+            "tone": "accent"
+          },
+          {
+            "label": "Not automatic",
+            "text": "Nothing pauses unless you add the step",
+            "tone": "warn"
+          }
         ],
         "narration": "First, an approval is a step you add to a workflow. The run pauses until a workspace owner decides. Wetel never pauses anything for approval on its own."
       },
@@ -103,9 +183,21 @@
         "title": "Every approval needs all three",
         "node": "approval",
         "branches": [
-          { "label": "approved", "text": "Carry on", "tone": "good" },
-          { "label": "rejected", "text": "Decline politely", "tone": "bad" },
-          { "label": "expired", "text": "Tell the customer someone will follow up", "tone": "warn" }
+          {
+            "label": "approved",
+            "text": "Carry on",
+            "tone": "good"
+          },
+          {
+            "label": "rejected",
+            "text": "Decline politely",
+            "tone": "bad"
+          },
+          {
+            "label": "expired",
+            "text": "Tell the customer someone will follow up",
+            "tone": "warn"
+          }
         ],
         "narration": "Every approval step needs three labelled paths. Approved. Rejected. And expired. Wetel refuses to save a workflow that is missing one, so the no answer case always goes somewhere you chose."
       },
@@ -114,9 +206,21 @@
         "eyebrow": "The clock",
         "title": "Silence is never a yes",
         "items": [
-          { "label": "72 hours", "text": "The default wait", "tone": "accent" },
-          { "label": "Up to 14 days", "text": "Set per step", "tone": "accent" },
-          { "label": "Then it expires", "text": "A late approve is refused, not acted on", "tone": "warn" }
+          {
+            "label": "72 hours",
+            "text": "The default wait",
+            "tone": "accent"
+          },
+          {
+            "label": "Up to 14 days",
+            "text": "Set per step",
+            "tone": "accent"
+          },
+          {
+            "label": "Then it expires",
+            "text": "A late approve is refused, not acted on",
+            "tone": "warn"
+          }
         ],
         "narration": "Silence is never a yes. By default a request waits seventy two hours, and you can set it up to fourteen days. After that it expires, and a late approve is refused, not acted on."
       },
@@ -125,8 +229,16 @@
         "eyebrow": "The expired path",
         "title": "Put something safe on it",
         "items": [
-          { "label": "Do", "text": "\"I haven't heard back yet. Someone will follow up.\"", "tone": "good" },
-          { "label": "Don't", "text": "The risky action itself", "tone": "bad" }
+          {
+            "label": "Do",
+            "text": "\"I haven't heard back yet. Someone will follow up.\"",
+            "tone": "good"
+          },
+          {
+            "label": "Don't",
+            "text": "The risky action itself",
+            "tone": "bad"
+          }
         ],
         "narration": "So put something safe on the expired path. Tell the customer nobody has decided yet and a person will follow up. Never run the risky action itself. If the step needed a yes, no answer is not a yes."
       },
@@ -135,8 +247,16 @@
         "eyebrow": "Good to know",
         "title": "Test it without waiting",
         "items": [
-          { "label": "Draft test", "text": "Simulate approved, rejected or expired instantly", "tone": "accent" },
-          { "label": "Notices today", "text": "In-app only. Email is not sent yet", "tone": "warn" }
+          {
+            "label": "Draft test",
+            "text": "Simulate approved, rejected or expired instantly",
+            "tone": "accent"
+          },
+          {
+            "label": "Notices today",
+            "text": "In-app only. Email is not sent yet",
+            "tone": "warn"
+          }
         ],
         "narration": "You can test every outcome in a draft run without waiting. And one honest note: notices are in the app only today. Email is not sent yet."
       },
@@ -146,6 +266,308 @@
         "title": "Human approval, step by step",
         "subtitle": "wetel.dev/docs",
         "narration": "The full walkthrough, from the approval step to the expired path, is in the docs at wetel dot dev slash docs."
+      }
+    ]
+  },
+  {
+    "id": "wetel03-how-much-rope",
+    "title": "How much rope should an AI employee get?",
+    "source": "wetel-site blog: supervised-or-autonomous-what-an-ai-employee-should-do-alone",
+    "scenes": [
+      {
+        "kind": "hook",
+        "eyebrow": "AI employees · 03",
+        "title": "Day one. Company card. \"Run the business.\"",
+        "subtitle": "Nobody does this to a new hire. So why do it to an AI employee?",
+        "narration": "Imagine a new hire's first morning. You hand them the company card and the bank login, and say, run the business, I'll check back in a month. Nobody does that to a person. So why do it to an AI employee?"
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "A ladder, not a switch",
+        "title": "How much rope?",
+        "items": [
+          {
+            "label": "1 · Read",
+            "text": "Look something up. Nothing changes",
+            "tone": "accent"
+          },
+          {
+            "label": "2 · Draft",
+            "text": "A person reads it first",
+            "tone": "accent"
+          },
+          {
+            "label": "3 · Act within limits",
+            "text": "Alone, inside boundaries you set",
+            "tone": "accent"
+          },
+          {
+            "label": "4 · Act after approval",
+            "text": "Money, promises, records",
+            "tone": "warn"
+          }
+        ],
+        "narration": "Autonomy is not one switch, it's a ladder. Reading and looking things up is rung one. Drafting something a person reads first is rung two. Acting alone inside limits you set is rung three. And anything you can't take back waits for approval, on rung four."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Placing an action",
+        "title": "Three questions",
+        "items": [
+          {
+            "label": "Can it be undone?",
+            "text": "A typo, yes. A refund, no",
+            "tone": "accent"
+          },
+          {
+            "label": "Who sees it?",
+            "text": "Internal, or a customer",
+            "tone": "accent"
+          },
+          {
+            "label": "What does a wrong one cost?",
+            "text": "Once, or forty times",
+            "tone": "accent"
+          }
+        ],
+        "narration": "To place any action on the ladder, ask three questions. Can it be undone? Who sees it? And what does a wrong one cost? You decide the answer in advance, instead of discovering the AI's opinion afterwards."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "But it's slower?",
+        "title": "Don't ask about everything",
+        "items": [
+          {
+            "label": "Start strict",
+            "text": "Approvals on the consequential steps",
+            "tone": "accent"
+          },
+          {
+            "label": "Read the records",
+            "text": "Weeks later, look at what happened",
+            "tone": "accent"
+          },
+          {
+            "label": "Loosen with evidence",
+            "text": "Always approved? Move it down a rung",
+            "tone": "good"
+          }
+        ],
+        "narration": "Won't asking a person slow everything down? Only for the few actions that matter. Start strict. After a few weeks, read the records. If one kind of action is approved every time without edits, move it down a rung."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Honest gap",
+        "title": "In Wetel today",
+        "items": [
+          {
+            "label": "Live",
+            "text": "An approval step you add to a workflow",
+            "tone": "good"
+          },
+          {
+            "label": "Not built yet",
+            "text": "Ask-first as a default policy",
+            "tone": "warn"
+          }
+        ],
+        "narration": "Here is where Wetel stands today. You can add an approval step to a workflow, and it pauses for a workspace owner. But asking first as a default policy is specified, not built."
+      },
+      {
+        "kind": "cta",
+        "eyebrow": "Before you hand over the keys",
+        "title": "Decide the line in advance",
+        "subtitle": "wetel.dev",
+        "narration": "So decide the line in advance, per kind of action. The full checklist is on wetel dot dev."
+      }
+    ]
+  },
+  {
+    "id": "wetel04-when-it-fails",
+    "title": "When an AI employee fails, what does the customer see?",
+    "source": "wetel-site blog: when-an-ai-employee-fails-what-the-customer-sees",
+    "scenes": [
+      {
+        "kind": "hook",
+        "eyebrow": "AI employees · 04",
+        "title": "The warehouse system is down.",
+        "subtitle": "What does your customer hear?",
+        "narration": "The warehouse system is down, and a customer asks where their order is. What do they hear? That depends on whether someone planned for this moment."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "The default",
+        "title": "A generic apology",
+        "items": [
+          {
+            "label": "\"Sorry, I ran into a problem\"",
+            "text": "What the customer sees",
+            "tone": "warn"
+          },
+          {
+            "label": "The real reason",
+            "text": "Kept in the run record, not shown in chat",
+            "tone": "accent"
+          }
+        ],
+        "narration": "By default, if a step fails and nothing catches it, the customer gets a short generic apology. The real reason is not shown in the chat. It is saved in the run record, where you can read it."
+      },
+      {
+        "kind": "flow",
+        "eyebrow": "Plan for it",
+        "title": "Give the step two exits",
+        "node": "action step",
+        "branches": [
+          {
+            "label": "success",
+            "text": "Reply with the result",
+            "tone": "good"
+          },
+          {
+            "label": "failure",
+            "text": "A reply you wrote",
+            "tone": "warn"
+          },
+          {
+            "label": "recorded",
+            "text": "Marked handled, not an outage",
+            "tone": "accent"
+          }
+        ],
+        "narration": "For tool and action steps, draw two exits, success and failure. A failure then goes down your branch instead of stopping the run. The error is still recorded, marked as handled, not as an outage."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Retry, then give up",
+        "title": "A bounded loop",
+        "items": [
+          {
+            "label": "Try again",
+            "text": "The failure edge loops back, up to 3 visits",
+            "tone": "accent"
+          },
+          {
+            "label": "Then give up",
+            "text": "A loop exhausted edge hands off",
+            "tone": "warn"
+          }
+        ],
+        "narration": "You can retry a step in a loop with a cap. Say three tries. When the cap runs out, a separate loop exhausted edge takes over with a graceful hand-off. Without that edge, the fourth failure ends in the generic apology."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Write it like a colleague",
+        "title": "Make the promise true",
+        "items": [
+          {
+            "label": "Do",
+            "text": "Say what happens next",
+            "tone": "good"
+          },
+          {
+            "label": "Don't",
+            "text": "Show the technical error",
+            "tone": "bad"
+          },
+          {
+            "label": "Only promise a call-back",
+            "text": "If something really arranges one",
+            "tone": "warn"
+          }
+        ],
+        "narration": "Write the failure reply the way a good colleague would talk. Say what happens next. Keep the technical error out of it. And only promise a call-back if something in the workflow actually arranges one."
+      },
+      {
+        "kind": "cta",
+        "eyebrow": "Read more",
+        "title": "Plan for the bad afternoon",
+        "subtitle": "wetel.dev/docs",
+        "narration": "The worked retry example is in the docs at wetel dot dev slash docs."
+      }
+    ]
+  },
+  {
+    "id": "wetel05-works-on-its-own",
+    "title": "An AI employee that starts on its own",
+    "source": "wetel-site blog: an-ai-employee-that-starts-on-its-own-scheduled-work",
+    "scenes": [
+      {
+        "kind": "hook",
+        "eyebrow": "AI employees · 05",
+        "title": "The Monday report nobody asked for.",
+        "subtitle": "An AI employee that starts work on its own.",
+        "narration": "Every team has that one colleague who sends the Monday report before anyone asks. An AI employee can do the same, with a scheduled workflow."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "What a schedule is",
+        "title": "A timer, not a chat",
+        "items": [
+          {
+            "label": "Runs the published workflow",
+            "text": "Every weekday at nine, say",
+            "tone": "accent"
+          },
+          {
+            "label": "No user message",
+            "text": "Inputs come from the schedule or your systems",
+            "tone": "accent"
+          },
+          {
+            "label": "Nobody is waiting",
+            "text": "The workflow must send results outward",
+            "tone": "warn"
+          }
+        ],
+        "narration": "A schedule runs an agent's published workflow on a timer. There is no user message, so inputs come from the schedule's own variables or from your systems. And nobody is waiting, so the workflow has to send its result outward itself."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "What stops it running away",
+        "title": "Three limits",
+        "items": [
+          {
+            "label": "Plan quota",
+            "text": "How many schedules you may have",
+            "tone": "accent"
+          },
+          {
+            "label": "Monthly spend cap",
+            "text": "Checked before every fire",
+            "tone": "accent"
+          },
+          {
+            "label": "Auto-disable",
+            "text": "Stops after repeated failures",
+            "tone": "accent"
+          }
+        ],
+        "narration": "Three limits stop it running away. Your plan limits how many schedules you can have. A monthly spend cap is checked before every run. And after repeated failures in a row, the schedule switches itself off."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Honest gap",
+        "title": "It stops, but tells nobody",
+        "items": [
+          {
+            "label": "Today",
+            "text": "No notice is sent when a schedule auto-disables",
+            "tone": "warn"
+          },
+          {
+            "label": "So check",
+            "text": "List your schedules, or read the agent activity summary",
+            "tone": "accent"
+          }
+        ],
+        "narration": "One honest gap. When a schedule switches itself off, no notification is sent today. So someone has to check, by listing the schedules or reading the agent's activity summary."
+      },
+      {
+        "kind": "cta",
+        "eyebrow": "Set one up",
+        "title": "Limits first, then hand it over",
+        "subtitle": "wetel.dev/docs",
+        "narration": "Set the limits first, then hand it the work. The reference is at wetel dot dev slash docs."
       }
     ]
   }
