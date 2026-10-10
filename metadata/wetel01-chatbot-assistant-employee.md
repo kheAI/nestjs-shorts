@@ -1,6 +1,7 @@
 # wetel01: Chatbot, assistant or AI employee?
 
 **Title:** Chatbot vs AI assistant vs AI employee: what's the difference? #shorts
+**Channel:** https://www.youtube.com/@weteldev
 **Length:** 65 s · 1080x1920 · file: out/ready-to-upload/wetel01-chatbot-assistant-employee.mp4
 
 **Description:**

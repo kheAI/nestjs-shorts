@@ -1,6 +1,7 @@
 # wetel02: What if nobody approves in time?
 
 **Title:** Your AI agent asked for approval. Nobody answered. Now what? #shorts
+**Channel:** https://www.youtube.com/@weteldev
 **Length:** 72 s · 1080x1920 · file: out/ready-to-upload/wetel02-nobody-approves.mp4
 
 **Description:**

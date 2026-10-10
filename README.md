@@ -72,7 +72,7 @@ npx remotion still <id> --frame=30 --scale=0.3   # spot-check a frame
 
 ## Wetel explainer shorts (narrated)
 
-Data-driven narrated shorts for the Wetel channel. Script = `data/wetel-shorts.json` (scenes with a `kind`, on-screen content and a `narration` line), brand = `data/wetel-brand.json`, engine = `src/wetel/`. One composition is registered per short id.
+Data-driven narrated shorts for the Wetel channel (https://www.youtube.com/@weteldev; the `@khe_ai` channel is a separate personal one and not used for these). Script = `data/wetel-shorts.json` (scenes with a `kind`, on-screen content and a `narration` line), brand = `data/wetel-brand.json`, engine = `src/wetel/`. One composition is registered per short id.
 
 ```bash
 node scripts/narrate.mjs                      # voice (macOS say + ffmpeg) -> public/audio + data/wetel-shorts-timing.json
