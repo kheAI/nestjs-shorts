@@ -570,5 +570,349 @@
         "narration": "Set the limits first, then hand it the work. The reference is at wetel dot dev slash docs."
       }
     ]
+  },
+  {
+    "id": "wetel06-run-record",
+    "title": "What is a run record?",
+    "source": "wetel-site blog: what-is-a-run-record-and-how-do-i-read-one",
+    "scenes": [
+      {
+        "kind": "hook",
+        "eyebrow": "AI employees · 06",
+        "title": "The customer hears \"all fixed\".",
+        "subtitle": "Where is the job sheet?",
+        "narration": "A technician finishes a repair. The customer hears, all fixed. But the real proof is the job sheet, the saved account of the work. An AI employee has one too. It's called a run record."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "What it is",
+        "title": "One run, step by step",
+        "items": [
+          {
+            "label": "Each step, in order",
+            "text": "Only the steps actually visited",
+            "tone": "accent"
+          },
+          {
+            "label": "What each produced",
+            "text": "Outputs, requests, errors",
+            "tone": "accent"
+          },
+          {
+            "label": "Where it failed",
+            "text": "The real reason, not the apology",
+            "tone": "warn"
+          }
+        ],
+        "narration": "A run record is the saved account of one workflow run. Each step the AI employee visited, in order. What each step produced. And where anything failed, with the real reason, not the generic apology."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "How to read one",
+        "title": "One query, three things",
+        "items": [
+          {
+            "label": "workflowRuns(sessionId)",
+            "text": "Every run of that conversation",
+            "tone": "accent"
+          },
+          {
+            "label": "status + errorMessage",
+            "text": "Did it stop, and why",
+            "tone": "accent"
+          },
+          {
+            "label": "nodeTrace",
+            "text": "The step list",
+            "tone": "accent"
+          }
+        ],
+        "narration": "You read it with one query, workflow runs, using the conversation's session id. Look at each run's status, its error message, and its step list."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Check a claim",
+        "title": "Match the reply to the step",
+        "items": [
+          {
+            "label": "Said \"filed\"",
+            "text": "Find the step that sends the application",
+            "tone": "accent"
+          },
+          {
+            "label": "Is it in the list?",
+            "text": "A step never reached has no entry",
+            "tone": "warn"
+          },
+          {
+            "label": "What did it send?",
+            "text": "Shows it happened, not that it was right",
+            "tone": "muted"
+          }
+        ],
+        "narration": "To check a claim of done, match the reply against the step that should have done the work. If the AI said your application was filed, find the step that sends it. Is it in the list? Did it fail? What did it send? The record shows whether the work happened, not whether it was right."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Good to know",
+        "title": "Read steps, not only status",
+        "items": [
+          {
+            "label": "Planned failures",
+            "text": "A run can finish normally with a failed step inside",
+            "tone": "warn"
+          },
+          {
+            "label": "Secrets",
+            "text": "Masked on a best-effort basis",
+            "tone": "warn"
+          },
+          {
+            "label": "Who can read",
+            "text": "Signed-in people in your workspace only",
+            "tone": "accent"
+          }
+        ],
+        "narration": "Two cautions. A planned failure path means a run can finish normally with a failed step inside, so read the steps, not only the status. And secrets are masked on a best effort basis, so never write one into a step's request."
+      },
+      {
+        "kind": "cta",
+        "eyebrow": "Start reading",
+        "title": "Check what it did, not only what it said",
+        "subtitle": "wetel.dev/docs",
+        "narration": "The full field guide is in the observability docs at wetel dot dev slash docs."
+      }
+    ]
+  },
+  {
+    "id": "wetel07-which-model",
+    "title": "Which AI model does my AI employee use?",
+    "source": "wetel-site blog: which-ai-model-does-my-ai-employee-use",
+    "scenes": [
+      {
+        "kind": "hook",
+        "eyebrow": "AI employees · 07",
+        "title": "Which AI model is it actually using?",
+        "subtitle": "And what happens if it fails?",
+        "narration": "Which AI model is your AI employee actually using? And what happens if that model fails? Think of a company car pool."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "The car pool",
+        "title": "Most trips use the pool car",
+        "items": [
+          {
+            "label": "Default model",
+            "text": "Used unless someone picks another",
+            "tone": "accent"
+          },
+          {
+            "label": "A different car",
+            "text": "For one AI employee or one step",
+            "tone": "accent"
+          },
+          {
+            "label": "A spare is sent",
+            "text": "If the default provider fails, a second one is tried",
+            "tone": "good"
+          }
+        ],
+        "narration": "Most trips use the standard pool car. Your AI employee runs on the platform's default model unless someone picks another. And if a call to the default provider fails, the platform automatically tries a second provider."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Who decides",
+        "title": "Most specific wins",
+        "items": [
+          {
+            "label": "1 · The step",
+            "text": "modelOverride on one step",
+            "tone": "accent"
+          },
+          {
+            "label": "2 · The AI employee",
+            "text": "Its own model choice",
+            "tone": "accent"
+          },
+          {
+            "label": "3 · The workspace",
+            "text": "Your workspace's choice",
+            "tone": "accent"
+          },
+          {
+            "label": "4 · The default",
+            "text": "The provider's own",
+            "tone": "muted"
+          }
+        ],
+        "narration": "The most specific choice wins. First the step's own model. Then the AI employee's. Then your workspace's. Then the provider's default. Choosing at the AI employee or workspace level is a pilot today, on request."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Guardrails",
+        "title": "Blocked means a clear refusal",
+        "items": [
+          {
+            "label": "Restrictions",
+            "text": "A Wetel administrator sets them, on your request",
+            "tone": "accent"
+          },
+          {
+            "label": "A blocked model",
+            "text": "Refused by name, never silently swapped",
+            "tone": "good"
+          },
+          {
+            "label": "An unknown model on a step",
+            "text": "Fails the run, so check the name before publishing",
+            "tone": "warn"
+          }
+        ],
+        "narration": "Who can restrict models? A Wetel administrator, on your request. If a blocked model is asked for, you get a clear refusal that names it, not a quiet swap. And a step that names an unknown model fails the run, so check the name before you publish."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "What we don't claim",
+        "title": "No speed or quality numbers",
+        "items": [
+          {
+            "label": "Not published",
+            "text": "Speed or quality figures for any model",
+            "tone": "warn"
+          },
+          {
+            "label": "A fallback may differ",
+            "text": "It can answer differently from the default",
+            "tone": "warn"
+          },
+          {
+            "label": "So test",
+            "text": "Try it on your own conversations first",
+            "tone": "accent"
+          }
+        ],
+        "narration": "One honest note. We don't publish speed or quality figures for any model, and a fallback model may answer differently. If the choice matters to your work, test it on your own conversations first."
+      },
+      {
+        "kind": "cta",
+        "eyebrow": "Go deeper",
+        "title": "Pick on purpose, not by accident",
+        "subtitle": "wetel.dev/docs",
+        "narration": "The resolution order and the model catalog are in the docs at wetel dot dev slash docs."
+      }
+    ]
+  },
+  {
+    "id": "wetel08-data-kept-separate",
+    "title": "Is my company's data kept separate?",
+    "source": "wetel-site blog: is-my-company-data-kept-separate",
+    "scenes": [
+      {
+        "kind": "hook",
+        "eyebrow": "AI employees · 08",
+        "title": "Is my data kept apart from other companies'?",
+        "subtitle": "Think of an office building with locked floors.",
+        "narration": "Is your company's data kept separate from other companies' data? Think of an office building with locked floors. Everyone shares the lifts, but your key card decides which floor the doors open on."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "The key card",
+        "title": "The credential decides",
+        "items": [
+          {
+            "label": "Dashboard login",
+            "text": "The workspace comes from the token",
+            "tone": "accent"
+          },
+          {
+            "label": "API key",
+            "text": "Belongs to one workspace, shown once",
+            "tone": "accent"
+          },
+          {
+            "label": "Browser chat token",
+            "text": "One conversation, about an hour",
+            "tone": "accent"
+          }
+        ],
+        "narration": "On every request, the workspace comes from your credential. A dashboard login, an API key, or a short-lived chat token. Never from something the caller types in."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "What that means",
+        "title": "Guessing ids does not help",
+        "items": [
+          {
+            "label": "Per workspace",
+            "text": "Agents, conversations, knowledge, keys",
+            "tone": "good"
+          },
+          {
+            "label": "Other workspace's records",
+            "text": "Can't be seen or changed, even by guessing numbers",
+            "tone": "good"
+          },
+          {
+            "label": "API keys",
+            "text": "Only a fingerprint is stored, and each can be revoked alone",
+            "tone": "good"
+          }
+        ],
+        "narration": "A request for one workspace cannot see or change another's data, even if someone guesses record numbers. API keys are shown once, only a fingerprint is stored, and each key can be revoked on its own."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Honest gaps",
+        "title": "Not in place yet",
+        "items": [
+          {
+            "label": "Certification",
+            "text": "No third-party security certification yet",
+            "tone": "warn"
+          },
+          {
+            "label": "Region",
+            "text": "No choice of where data is stored",
+            "tone": "warn"
+          },
+          {
+            "label": "Audit view",
+            "text": "No workspace-wide change log for customers",
+            "tone": "warn"
+          }
+        ],
+        "narration": "Now the honest part. There's no third party security certification yet. No choice of region for where your data is stored. And no workspace wide change log for customers."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Ask any vendor",
+        "title": "Questions worth asking",
+        "items": [
+          {
+            "label": "Where does the workspace come from?",
+            "text": "The credential, or the caller?",
+            "tone": "accent"
+          },
+          {
+            "label": "Who can see our data?",
+            "text": "And exactly what?",
+            "tone": "accent"
+          },
+          {
+            "label": "Which parts are live today?",
+            "text": "Roadmap means not available",
+            "tone": "warn"
+          }
+        ],
+        "narration": "Ask any vendor these. Where does the workspace on each request come from? Who on your side can see our data, and exactly what? And if the answer is, it's on the roadmap, treat it as not available today."
+      },
+      {
+        "kind": "cta",
+        "eyebrow": "Read the detail",
+        "title": "Separation you can check",
+        "subtitle": "wetel.dev/docs",
+        "narration": "The multi tenancy and authentication details are in the docs at wetel dot dev slash docs."
+      }
+    ]
   }
 ]

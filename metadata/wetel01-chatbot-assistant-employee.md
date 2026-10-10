@@ -3,6 +3,7 @@
 **Title:** Chatbot vs AI assistant vs AI employee: what's the difference? #shorts
 **Channel:** https://www.youtube.com/@weteldev
 **Length:** 76 s · 1080x1920 · file: out/ready-to-upload/wetel01-chatbot-assistant-employee.mp4
+**Post publish date (the link 404s before this):** 2026-10-09
 
 **Description:**
 Three words vendors use as if they mean the same thing. A bell on the counter, a helpful stranger, and a colleague at the desk: what each can do, and the four questions that tell them apart.

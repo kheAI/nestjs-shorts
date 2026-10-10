@@ -16,7 +16,7 @@ if [ "$HAVE" != "$SCENES" ]; then
   [ -n "$KEY" ] || { echo "GEMINI_API_KEY not found in $ENV_FILE"; exit 1; }
   GEMINI_API_KEY="$KEY" node scripts/narrate.mjs "$ID"
 fi
-node scripts/envelope.mjs
+node scripts/envelope.mjs "$ID"
 
 mkdir -p out/rendered out/ready-to-upload
 caffeinate -i npx remotion render src/index.ts "$ID" "out/rendered/$ID.mp4" --concurrency=2 | tail -1
