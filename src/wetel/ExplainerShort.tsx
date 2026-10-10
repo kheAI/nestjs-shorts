@@ -38,7 +38,7 @@ const toneColor = (tone: Tone): string =>
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
 // Shorts UI covers the bottom ~380px and the right edge; keep everything inside this box.
-const SAFE = { left: 72, right: 120, top: 260, captionTop: 1290, bottomLimit: 1540 };
+const SAFE = { left: 72, right: 120, top: 230, captionTop: 1385, bottomLimit: 1550 };
 
 const fadeUp = (frame: number, start: number, dur = 14) => ({
   opacity: interpolate(frame, [start, start + dur], [0, 1], clamp),
@@ -387,8 +387,8 @@ export const ExplainerShort: React.FC<ExplainerProps> = ({ shortId, sceneSeconds
               <SceneView scene={scene} frames={frames} />
             </AbsoluteFill>
             <Captions text={scene.narration} frames={frames} />
-            <div style={{ position: "absolute", left: SAFE.left, top: SAFE.captionTop - 150 }}>
-              <TalkingCapybara envelope={(envelopes as Record<string, number[][]>)[short.id][i]} size={230} />
+            <div style={{ position: "absolute", left: SAFE.left, top: SAFE.captionTop - 135 }}>
+              <TalkingCapybara envelope={(envelopes as Record<string, number[][]>)[short.id][i]} size={190} />
             </div>
           </Sequence>
         );
