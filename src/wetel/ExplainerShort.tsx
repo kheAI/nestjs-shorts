@@ -309,7 +309,7 @@ const CtaView: React.FC<{ scene: CtaScene }> = ({ scene }) => {
 
 /** Narration spells URLs the way they are spoken; captions show them the way they are written. */
 const writtenUrls = (t: string) =>
-  t.replace(/wetel dot dev slash docs/gi, "wetel.dev/docs").replace(/wetel dot dev/gi, "wetel.dev");
+  t.replace(/wetel dot dev slash ([a-z0-9-]+)/gi, "wetel.dev/$1").replace(/wetel dot dev/gi, "wetel.dev");
 
 /** Splits narration into sentence captions, each shown for time proportional to its length. */
 const Captions: React.FC<{ text: string; frames: number }> = ({ text, frames }) => {
