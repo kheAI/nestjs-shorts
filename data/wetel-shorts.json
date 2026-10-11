@@ -1239,5 +1239,142 @@
         "narration": "Today Wetel reports your usage, it doesn't bill it yet. The details are on the pricing page at wetel dot dev slash docs."
       }
     ]
+  },
+  {
+    "id": "wetel12-decision-models",
+    "title": "A model that decides, a workflow that acts",
+    "source": "wetel-site blog: a-model-that-decides-and-a-workflow-that-acts",
+    "scenes": [
+      {
+        "kind": "hook",
+        "eyebrow": "Workflows · 12",
+        "title": "A nurse judges. The hospital acts.",
+        "subtitle": "How decision models fit workflows.",
+        "narration": "At a hospital triage desk, a nurse looks at you for thirty seconds and says how urgent it is, and which department. Then the hospital takes over. Most AI workflows blur those two jobs."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "The problem",
+        "title": "A chat model as a router",
+        "items": [
+          {
+            "label": "Asked for one word",
+            "text": "Sometimes it writes a sentence",
+            "tone": "warn"
+          },
+          {
+            "label": "No sense of how sure",
+            "text": "A close call looks like a sure one",
+            "tone": "bad"
+          },
+          {
+            "label": "Safeguards fix the format",
+            "text": "Not the certainty",
+            "tone": "warn"
+          }
+        ],
+        "narration": "Many workflows ask a chat model for one word, then add code for when it writes a sentence. That fixes the format, not the certainty. A close call gets routed exactly like a sure one."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "A different kind of model",
+        "title": "Three question types",
+        "items": [
+          {
+            "label": "Yes or no",
+            "text": "A probability, like 0.91",
+            "tone": "accent"
+          },
+          {
+            "label": "Choice",
+            "text": "A pick, plus a probability for each option",
+            "tone": "accent"
+          },
+          {
+            "label": "Score",
+            "text": "A number on your scale, plus confidence",
+            "tone": "accent"
+          }
+        ],
+        "narration": "A decision model answers closed questions instead of chatting. A yes or no gives a probability. A choice gives a pick, with a probability for every option. A score gives a number on your scale."
+      },
+      {
+        "kind": "flow",
+        "eyebrow": "The split",
+        "title": "Each answer feeds a step",
+        "node": "decision",
+        "branches": [
+          {
+            "label": "probability",
+            "text": "condition: over a threshold",
+            "tone": "accent"
+          },
+          {
+            "label": "score",
+            "text": "switch: bands of the number",
+            "tone": "accent"
+          },
+          {
+            "label": "choice",
+            "text": "router: match the label",
+            "tone": "accent"
+          }
+        ],
+        "narration": "In Wetel, each answer feeds a step that already exists. A probability goes to a condition with a threshold. A score goes to a switch. A choice goes to a router. The workflow still owns every rule."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Where a person comes in",
+        "title": "Not sure is a path",
+        "items": [
+          {
+            "label": "The threshold",
+            "text": "Yours to set, from your own examples",
+            "tone": "good"
+          },
+          {
+            "label": "The default edge",
+            "text": "Send it to a person or an approval",
+            "tone": "good"
+          },
+          {
+            "label": "The check",
+            "text": "Try 200 real past messages first",
+            "tone": "accent"
+          }
+        ],
+        "narration": "A person comes in at the threshold, and that number is your decision, not the model's. Point the default path at an approval. Before you trust it, run about two hundred of your own past messages."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "The honest gap",
+        "title": "Not built yet",
+        "items": [
+          {
+            "label": "A decision model wired in",
+            "text": "Not built. You would register your own action",
+            "tone": "warn"
+          },
+          {
+            "label": "Speed and cost",
+            "text": "Not measured by us yet",
+            "tone": "warn"
+          },
+          {
+            "label": "A built-in decision step",
+            "text": "Direction, not a date",
+            "tone": "warn"
+          }
+        ],
+        "narration": "The honest part. No decision model is wired into Wetel yet. The switch and set variable steps are live. We haven't measured speed or cost, and a built in decision step is a direction, not a date."
+      },
+      {
+        "kind": "cta",
+        "eyebrow": "Read the post",
+        "title": "The full guide is on the blog",
+        "subtitle": "wetel.dev",
+        "narration": "The full guide is on the Wetel blog at wetel dot dev slash blog. Let a model judge, and let a workflow act."
+      }
+    ]
   }
 ]
