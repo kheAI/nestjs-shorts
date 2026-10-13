@@ -1376,5 +1376,128 @@
         "narration": "The full guide is on the Wetel blog at wetel dot dev slash blog. Let a model judge, and let a workflow act."
       }
     ]
+  },
+  {
+    "id": "wetel13-triage-sorting-under-scarcity",
+    "title": "Triage Is Sorting Under Scarcity",
+    "source": "wetel-site blog: triage-is-sorting-under-scarcity",
+    "scenes": [
+      {
+        "kind": "hook",
+        "eyebrow": "AI employees · 13",
+        "title": "First come, first served kills.",
+        "subtitle": "Triage means sorting under scarcity.",
+        "narration": "On a battlefield, treating arrivals in order kills people who could have been saved. So surgeons sort first. Support queues have the same shape, and rarely admit it."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Tiers, not inboxes",
+        "title": "Tiers shield each other",
+        "items": [
+          {
+            "label": "L0 · Deflect",
+            "text": "Answer from your own docs",
+            "tone": "accent"
+          },
+          {
+            "label": "L1 · Sort",
+            "text": "Component, intent, priority",
+            "tone": "accent"
+          },
+          {
+            "label": "L2 · Diagnose",
+            "text": "Logs, replication, config",
+            "tone": "accent"
+          },
+          {
+            "label": "L3 · Fix",
+            "text": "Code changes, nothing else",
+            "tone": "warn"
+          }
+        ],
+        "narration": "Teams that survive scale end up with tiers. Self-service deflects what never needed a person. Triage sorts the rest. Specialists diagnose. Engineers only ever see code fixes."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Every ticket, every time",
+        "title": "Sort, then spend",
+        "items": [
+          {
+            "label": "1 · Intake",
+            "text": "Prose into fixed labels",
+            "tone": "accent"
+          },
+          {
+            "label": "2 · Enrich",
+            "text": "Blast radius, past incidents",
+            "tone": "accent"
+          },
+          {
+            "label": "3 · Prioritise",
+            "text": "Impact times urgency",
+            "tone": "accent"
+          },
+          {
+            "label": "4 · Hand off",
+            "text": "Repro, environment, attempts",
+            "tone": "good"
+          }
+        ],
+        "narration": "Every ticket passes the same four steps. Turn prose into labels. Attach blast radius and past incidents. Prioritise by impact times urgency. Hand off repro steps, environment, and what was already tried."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Not how angry it sounds",
+        "title": "Impact times urgency",
+        "items": [
+          {
+            "label": "P1 · Critical",
+            "text": "Down for many",
+            "tone": "bad"
+          },
+          {
+            "label": "P2 · High",
+            "text": "Broken, painful workaround",
+            "tone": "warn"
+          },
+          {
+            "label": "P3 · Normal",
+            "text": "Minor, one user",
+            "tone": "accent"
+          },
+          {
+            "label": "P4 · Low",
+            "text": "Cosmetic or question",
+            "tone": "good"
+          }
+        ],
+        "narration": "Priority is impact times urgency, never how angry the message sounds. A service down for many customers outranks one angry message, every time."
+      },
+      {
+        "kind": "cards",
+        "eyebrow": "Honest gap",
+        "title": "In Wetel today",
+        "items": [
+          {
+            "label": "Live",
+            "text": "Classify, route and approval graphs",
+            "tone": "good"
+          },
+          {
+            "label": "Not built yet",
+            "text": "No auto scoring, no SLA timers",
+            "tone": "warn"
+          }
+        ],
+        "narration": "Where Wetel stands today. Classify, route and approval graphs are live, with a run record behind every ticket. But automatic scoring and built-in timers are direction, not built yet."
+      },
+      {
+        "kind": "cta",
+        "eyebrow": "Sort first, on purpose",
+        "title": "Read the triage post",
+        "subtitle": "wetel.dev",
+        "narration": "Sort first, under scarcity, on purpose. The full triage post is on wetel dot dev."
+      }
+    ]
   }
 ]
